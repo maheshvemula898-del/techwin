@@ -30,7 +30,7 @@ export const SEO = ({
   const domain = content?.branding?.domain || "techwensys.com";
   const rawTwitterHandle = (content?.branding?.twitterHandle || "").replace(/^@/, "").trim();
   const twitterHandle = /^[A-Za-z0-9_]{1,15}$/.test(rawTwitterHandle) ? rawTwitterHandle : null;
-  const faviconUrl = content?.branding?.faviconUrl || "/favicon.png";
+  const faviconUrl = content?.branding?.faviconUrl || "/techwen-favicon.png";
   const previewImageUrl = content?.branding?.previewImageUrl || "/hero-preview.png";
 
   const imageSource = ogImage || previewImageUrl;

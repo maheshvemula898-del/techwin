@@ -147,7 +147,7 @@ export default function AdminPanel() {
         setBrandName("Techwin Systems");
         setDomain("techwensys.com");
         setTwitterHandle("Techwin Systems");
-        setFaviconUrl("/favicon.png");
+        setFaviconUrl("/techwen-favicon.png");
         setPreviewImageUrl("/hero-preview.png");
       }
     }
@@ -1231,7 +1231,7 @@ export default function AdminPanel() {
                   <div className="space-y-1 mt-4">
                     <label className="text-xs font-semibold text-slate-700">Favicon Asset URL or Upload</label>
                     <div className="flex gap-2">
-                      <Input value={faviconUrl} onChange={(e) => setFaviconUrl(e.target.value)} className="bg-slate-50 border-slate-200 text-xs h-9 rounded-lg flex-1" placeholder="e.g. /favicon.png" />
+                      <Input value={faviconUrl} onChange={(e) => setFaviconUrl(e.target.value)} className="bg-slate-50 border-slate-200 text-xs h-9 rounded-lg flex-1" placeholder="e.g. /techwen-favicon.png" />
                       <div className="relative">
                         <input type="file" id="favicon-upload" accept="image/*" className="hidden" onChange={handleFaviconUpload} />
                         <Button type="button" variant="outline" onClick={() => document.getElementById("favicon-upload")?.click()} className="border-slate-200 bg-white hover:bg-slate-50 text-xs h-9 shadow-sm">

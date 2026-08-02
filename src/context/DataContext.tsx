@@ -235,7 +235,7 @@ export const defaultFallbackContent: WebsiteContent = {
     domain: "techwensys.com",
     twitterHandle: "Techwin Systems",
     logoUrl: "",
-    faviconUrl: "/favicon.png",
+    faviconUrl: "/techwen-favicon.png",
     previewImageUrl: "/hero-preview.png"
   }
 };
