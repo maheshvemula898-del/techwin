@@ -66,7 +66,8 @@ import { Link } from "@/lib/router";
 import { Helmet } from "react-helmet-async";
 import { useData, defaultFallbackContent } from "@/context/DataContext";
 import { ADMIN_EMAIL, useAuth } from "@/context/AuthContext";
-import { getAdminApiHeaders, getAdminApiToken, setAdminApiToken } from "@/lib/adminApi";
+import { db, isFirebaseConfigured } from "@/lib/firebase";
+import { addDoc, collection, deleteDoc, doc, getDocs, orderBy, query, updateDoc } from "firebase/firestore";
 import {
   WebsiteContent,
   ServiceItem,
@@ -117,15 +118,13 @@ export default function AdminPanel() {
   const { content, updateContent } = useData();
   
   // Base State
-  const [leads, setLeads] = useState<Lead[]>(initialLeads);
+  const [leads, setLeads] = useState<Lead[]>(isFirebaseConfigured ? [] : initialLeads);
   const [seoList, setSeoList] = useState(initialSeoData);
   const [webContent, setWebContent] = useState<WebsiteContent>(content || defaultFallbackContent);
   const [searchQuery, setSearchQuery] = useState("");
   const [leadSearchQuery, setLeadSearchQuery] = useState("");
   const [leadFilter, setLeadFilter] = useState<string>("All");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [apiToken, setApiToken] = useState(getAdminApiToken);
-  const [apiTokenDraft, setApiTokenDraft] = useState(getAdminApiToken);
 
   // Tab Navigation Binding State
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -157,18 +156,16 @@ export default function AdminPanel() {
   // Fetch Leads from Database
   useEffect(() => {
     const fetchLeads = async () => {
+      if (!db || !user) return;
       try {
-        const res = await fetch("/api/leads", { headers: getAdminApiHeaders() });
-        if (res.ok) {
-          const data = await res.json();
-          setLeads(data);
-        }
+        const snapshot = await getDocs(query(collection(db, "leads"), orderBy("date", "desc")));
+        setLeads(snapshot.docs.map((leadDoc) => ({ id: leadDoc.id, ...leadDoc.data() } as Lead)));
       } catch (err) {
-        console.warn("Express backend unavailable, running with fallback mock leads");
+        console.warn("Unable to load Firestore leads:", err);
       }
     };
     fetchLeads();
-  }, [apiToken]);
+  }, [user]);
 
   // System Config States
   const [companyName, setCompanyName] = useState("");
@@ -369,26 +366,21 @@ export default function AdminPanel() {
       message: newLeadMessage
     };
 
+    const leadData = {
+      ...item,
+      status: "New" as const,
+      date: new Date().toISOString().replace('T', ' ').substring(0, 16)
+    };
+
     try {
-      const res = await fetch("/api/leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(item)
-      });
-      if (res.ok) {
-        const data = await res.json();
-        setLeads([data.lead, ...leads]);
-        toast.success("Simulated lead saved!");
-      }
-    } catch {
-      const mockLead: Lead = {
-        id: `mock-${Date.now()}`,
-        ...item,
-        status: "New",
-        date: new Date().toISOString().replace('T', ' ').substring(0, 16)
-      };
-      setLeads([mockLead, ...leads]);
-      toast.success("Simulated lead saved locally!");
+      if (!db) throw new Error("Firestore is not configured.");
+      const leadRef = await addDoc(collection(db, "leads"), leadData);
+      setLeads([{ id: leadRef.id, ...leadData }, ...leads]);
+      toast.success("Inquiry saved to Firestore!");
+    } catch (error) {
+      console.error("Unable to save lead:", error);
+      toast.error("Unable to save this inquiry.");
+      return;
     }
     
     setIsAddLeadOpen(false);
@@ -400,31 +392,25 @@ export default function AdminPanel() {
 
   const handleDeleteLead = async (id: string) => {
     try {
-      const res = await fetch(`/api/leads/${id}`, { method: "DELETE", headers: getAdminApiHeaders() });
-      if (res.ok) {
-        setLeads(leads.filter(l => l.id !== id));
-        toast.success("Lead removed!");
-      }
-    } catch {
+      if (!db) throw new Error("Firestore is not configured.");
+      await deleteDoc(doc(db, "leads", id));
       setLeads(leads.filter(l => l.id !== id));
-      toast.success("Lead removed locally!");
+      toast.success("Lead removed!");
+    } catch (error) {
+      console.error("Unable to remove lead:", error);
+      toast.error("Unable to remove this lead.");
     }
   };
 
   const handleUpdateLeadStatus = async (id: string, status: Lead["status"]) => {
     try {
-      const res = await fetch(`/api/leads/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json", ...getAdminApiHeaders() },
-        body: JSON.stringify({ status })
-      });
-      if (res.ok) {
-        setLeads(leads.map(l => l.id === id ? { ...l, status } : l));
-        toast.success("Status updated!");
-      }
-    } catch {
+      if (!db) throw new Error("Firestore is not configured.");
+      await updateDoc(doc(db, "leads", id), { status });
       setLeads(leads.map(l => l.id === id ? { ...l, status } : l));
-      toast.success("Status updated locally!");
+      toast.success("Status updated!");
+    } catch (error) {
+      console.error("Unable to update lead:", error);
+      toast.error("Unable to update this lead.");
     }
   };
 
@@ -1218,21 +1204,6 @@ export default function AdminPanel() {
 
             {/* TAB: SYSTEM SETTINGS */}
             <TabsContent value="settings" className="space-y-6 focus:outline-none">
-              <Card className="bg-white border-slate-200/80 rounded-2xl shadow-sm max-w-2xl">
-                <CardHeader>
-                  <CardTitle className="text-sm font-bold text-slate-900">Secure API Access</CardTitle>
-                  <CardDescription>Enter the server administrator token for this browser session. It is never stored persistently.</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <label className="text-xs font-semibold text-slate-700" htmlFor="admin-api-token">Administrator API token</label>
-                  <div className="flex gap-2">
-                    <Input id="admin-api-token" type="password" autoComplete="off" value={apiTokenDraft} onChange={(event) => setApiTokenDraft(event.target.value)} className="bg-slate-50 border-slate-200 text-xs h-9 rounded-lg flex-1" placeholder="Enter the ADMIN_API_TOKEN value" />
-                    <Button type="button" onClick={() => { setAdminApiToken(apiTokenDraft); setApiToken(getAdminApiToken()); toast.success(apiTokenDraft.trim() ? "API token saved for this session" : "API token cleared"); }} className="bg-sky-600 hover:bg-sky-700 text-white rounded-lg h-9">Save</Button>
-                  </div>
-                  <p className="text-[11px] leading-5 text-slate-500">Set the matching <code>ADMIN_API_TOKEN</code> environment variable on the API server. Use at least 32 random characters.</p>
-                </CardContent>
-              </Card>
-
               <Card className="bg-white border-slate-200/80 rounded-2xl shadow-sm max-w-2xl">
                 <CardHeader>
                   <CardTitle className="text-sm font-bold text-slate-900">Whitelabel Branding & Customization</CardTitle>

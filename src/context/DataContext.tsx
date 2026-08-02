@@ -21,6 +21,8 @@ const hasFirebaseConfig = Boolean(
   import.meta.env.VITE_FIREBASE_APP_ID
 );
 
+const useLocalBackend = import.meta.env.DEV;
+
 // Define default initial fallback state
 export const defaultFallbackContent: WebsiteContent = {
   services: initialServices,
@@ -273,23 +275,26 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        // Try calling the Express Backend API first
-        try {
-          const apiRes = await fetch("/api/content");
-          if (apiRes.ok) {
-            const apiData = await apiRes.json();
-            const merged = mergeWithCurrentBrand(apiData);
-            setContent(merged);
-            setLoading(false);
-            console.log("Website content loaded successfully from Express Backend API.");
-            return;
+        // The Express API is a local development convenience. Production uses
+        // Firestore directly so Vercel does not depend on an ephemeral file system.
+        if (useLocalBackend) {
+          try {
+            const apiRes = await fetch("/api/content");
+            if (apiRes.ok) {
+              const apiData = await apiRes.json();
+              const merged = mergeWithCurrentBrand(apiData);
+              setContent(merged);
+              setLoading(false);
+              console.log("Website content loaded successfully from the local API.");
+              return;
+            }
+          } catch (apiErr) {
+            console.warn("Local API not available, using Firebase/local content.", apiErr);
           }
-        } catch (apiErr) {
-          console.warn("Express Backend API not available, trying Firebase/LocalStorage fallback...", apiErr);
         }
 
         if (hasFirebaseConfig) {
-          const [{ db }, { doc, getDoc, setDoc }] = await Promise.all([
+          const [{ db }, { doc, getDoc }] = await Promise.all([
             import("@/lib/firebase"),
             import("firebase/firestore"),
           ]);
@@ -302,7 +307,6 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
             const merged = mergeWithCurrentBrand(data);
             setContent(merged);
           } else {
-            await setDoc(docRef, defaultFallbackContent);
             setContent(defaultFallbackContent);
           }
         } else {
@@ -326,21 +330,23 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const updateContent = async (newContent: WebsiteContent): Promise<boolean> => {
     try {
       let backendSuccess = false;
-      // Try updating via Express Backend API
-      try {
-        const apiRes = await fetch("/api/content", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            ...getAdminApiHeaders(),
-          },
-          body: JSON.stringify(newContent),
-        });
-        if (apiRes.ok) {
-          backendSuccess = true;
+      // Keep the file-backed API available for local development only.
+      if (useLocalBackend) {
+        try {
+          const apiRes = await fetch("/api/content", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              ...getAdminApiHeaders(),
+            },
+            body: JSON.stringify(newContent),
+          });
+          if (apiRes.ok) {
+            backendSuccess = true;
+          }
+        } catch (apiErr) {
+          console.warn("Failed to update via the local API:", apiErr);
         }
-      } catch (apiErr) {
-        console.warn("Failed to update via Express Backend API:", apiErr);
       }
 
       // Also persist to Firebase/LocalStorage as secondary
