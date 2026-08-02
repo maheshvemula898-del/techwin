@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Cookie, X } from "lucide-react";
 import { Link } from "@/lib/router";
@@ -53,16 +52,10 @@ export const CookieConsent = () => {
     setIsVisible(false);
   };
 
+  if (!isVisible) return null;
+
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 100, opacity: 0 }}
-          transition={{ type: "spring", damping: 25, stiffness: 200 }}
-          className="fixed bottom-0 left-0 right-0 z-[100] p-3 sm:p-4 md:p-6"
-        >
+        <div className="animate-in slide-in-from-bottom-6 fade-in fixed bottom-0 left-0 right-0 z-[100] p-3 duration-300 sm:p-4 md:p-6">
           <div className="container mx-auto max-w-4xl">
             <div className="bg-card border border-border rounded-xl shadow-2xl p-4 sm:p-5 md:p-6 relative">
               {/* Close button */}
@@ -118,8 +111,6 @@ export const CookieConsent = () => {
               </div>
             </div>
           </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+        </div>
   );
 };

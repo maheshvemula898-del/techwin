@@ -51,7 +51,7 @@ const Industries = () => {
           <div className="mt-8 hidden grid-cols-12 gap-1 md:grid">
             {industries.slice(0, 4).map((industry, index) => (
               <Link key={industry.title} to={`/industries/${industry.slug}`} className={`group relative isolate overflow-hidden bg-neutral-900 ${index === 0 ? "col-span-7 row-span-2 min-h-[604px]" : "col-span-5 min-h-[300px]"}`}>
-                <img src={industry.image} alt={industry.title} className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.035]" />
+                <img src={industry.image} alt={industry.title} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.035]" />
                 <div className="absolute inset-0 bg-black/35 transition-colors group-hover:bg-black/45" />
                 <div className="absolute inset-x-0 bottom-0 bg-black/55 p-6 text-white lg:p-8">
                   <p className="text-[10px] font-bold uppercase tracking-[.2em] text-white/70">{String(index + 1).padStart(2, "0")}</p>
@@ -75,7 +75,7 @@ const Industries = () => {
           <div className="mt-6 space-y-3 md:hidden">
             {industries.map((industry, index) => (
               <Link key={industry.title} to={`/industries/${industry.slug}`} className="group relative block min-h-[270px] overflow-hidden bg-neutral-900">
-                <img src={industry.image} alt={industry.title} className="absolute inset-0 h-full w-full object-cover" />
+                <img src={industry.image} alt={industry.title} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
                 <div className="absolute inset-0 bg-black/35" />
                 <div className="absolute inset-x-0 bottom-0 bg-black/60 p-5 text-white"><p className="text-[10px] font-bold tracking-[.18em] text-white/65">{String(index + 1).padStart(2, "0")}</p><h3 className="mt-2 text-2xl font-medium tracking-[-.03em]">{industry.title}</h3><p className="mt-2 line-clamp-2 text-[13px] leading-5 text-white/75">{industry.description}</p><span className="mt-4 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.12em]">Explore industry <ArrowRight className="h-3.5 w-3.5 text-[#4c9aff]" /></span></div>
               </Link>
@@ -115,6 +115,8 @@ const Industries = () => {
                       <img 
                         src={industry.image} 
                         alt={industry.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.045] rounded-none"
                       />
                     </div>
@@ -149,7 +151,7 @@ const Industries = () => {
           <ScrollStack useWindowScroll itemDistance={48} itemStackDistance={12} stackPosition="12%" baseScale={0.92} itemScale={0.01} className="industries-mobile-stack md:hidden">
             {industries.map((industry) => {
               const Icon = getLucideIcon(industry.iconName);
-              return <ScrollStackItem key={industry.title} itemClassName="industry-stack-card overflow-hidden bg-white text-neutral-950"><Link to={`/industries/${industry.slug}`} className="flex h-full flex-col"><div className="industry-stack-image overflow-hidden"><img src={industry.image} alt={industry.title} className="h-full w-full object-cover" /></div><div className="flex flex-1 flex-col p-5"><div className="flex items-center gap-3"><span className="flex h-8 w-8 items-center justify-center bg-[#edf2f7] text-[#315f98]"><Icon className="h-4 w-4" /></span><h3 className="text-base font-semibold">{industry.title}</h3></div><p className="mt-3 text-[13px] leading-5 text-neutral-600">{industry.description}</p><span className="mt-auto inline-flex items-center gap-2 pt-4 text-[10px] font-bold uppercase tracking-[.1em] text-[#315f98]">Explore industry <ArrowRight className="h-3.5 w-3.5" /></span></div></Link></ScrollStackItem>;
+              return <ScrollStackItem key={industry.title} itemClassName="industry-stack-card overflow-hidden bg-white text-neutral-950"><Link to={`/industries/${industry.slug}`} className="flex h-full flex-col"><div className="industry-stack-image overflow-hidden"><img src={industry.image} alt={industry.title} loading="lazy" decoding="async" className="h-full w-full object-cover" /></div><div className="flex flex-1 flex-col p-5"><div className="flex items-center gap-3"><span className="flex h-8 w-8 items-center justify-center bg-[#edf2f7] text-[#315f98]"><Icon className="h-4 w-4" /></span><h3 className="text-base font-semibold">{industry.title}</h3></div><p className="mt-3 text-[13px] leading-5 text-neutral-600">{industry.description}</p><span className="mt-auto inline-flex items-center gap-2 pt-4 text-[10px] font-bold uppercase tracking-[.1em] text-[#315f98]">Explore industry <ArrowRight className="h-3.5 w-3.5" /></span></div></Link></ScrollStackItem>;
             })}
           </ScrollStack>
         </div>

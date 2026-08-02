@@ -119,6 +119,8 @@ const DynamicService = () => {
                   <img
                     src={detail.visualImage}
                     alt={`${cleanMarkdown(service.title)} capabilities`}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover rounded-none"
                   />
                 </div>

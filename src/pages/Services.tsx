@@ -149,6 +149,8 @@ const Services = () => {
                         <img
                           src={offering.image}
                           alt={offering.title}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02] rounded-none"
                         />
                       </div>
@@ -293,7 +295,7 @@ const Services = () => {
             {/* Right Column: Image Framed */}
             <div className="lg:col-span-5">
               <div className="relative border border-neutral-300 bg-white overflow-hidden rounded-none aspect-[4/3]">
-                <img src="/techwin-network-hero.webp" alt="Connected global technology operations" className="h-full w-full object-cover" />
+                <img src="/techwin-network-hero.webp" alt="Connected global technology operations" loading="lazy" decoding="async" className="h-full w-full object-cover" />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-6 pb-6 pt-20 text-white"><p className="text-[10px] font-bold uppercase tracking-[.18em] text-white/70">Enterprise delivery</p><p className="mt-2 max-w-sm text-lg font-medium">Global expertise. Local accountability. Measurable outcomes.</p></div>
                 <div className="absolute right-0 top-0 bg-[#315f98] p-4 text-white rounded-none">
                   <div className="text-2xl font-bold">10+</div>

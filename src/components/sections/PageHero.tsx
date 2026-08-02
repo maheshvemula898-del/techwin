@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Link } from "@/lib/router";
 import { ArrowRight, ChevronRight, Home } from "lucide-react";
 
@@ -50,6 +49,8 @@ export const PageHero = ({
       {backgroundImage && useFullBackground && (
         <img
           src={backgroundImage}
+          fetchPriority="high"
+          decoding="async"
           onError={(event) => { event.currentTarget.src = "/techwin-network-hero.webp"; }}
           alt=""
           aria-hidden="true"
@@ -66,6 +67,8 @@ export const PageHero = ({
         <>
           <img
             src={mobileBackgroundImage || backgroundImage}
+            fetchPriority="high"
+            decoding="async"
             onError={(event) => { event.currentTarget.src = "/techwin-network-hero.webp"; }}
             alt=""
             aria-hidden="true"
@@ -77,12 +80,7 @@ export const PageHero = ({
       )}
 
       <div className={`relative mx-auto grid max-w-[1512px] ${backgroundImage && !useFullBackground ? "lg:grid-cols-[1.08fr_.72fr]" : "grid-cols-1"}`}>
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: .5 }}
-          className={`${compact ? "py-12 lg:py-16" : "py-20 lg:py-28"} relative z-10 flex flex-col justify-center px-6 lg:px-16 ${useFullBackground ? "lg:min-h-[350px] lg:max-w-[930px]" : ""} ${backgroundImage && mobileBackgroundBehindText ? "min-h-[330px]" : ""}`}
-        >
+        <div className={`${compact ? "py-12 lg:py-16" : "py-20 lg:py-28"} animate-in fade-in slide-in-from-bottom-4 relative z-10 flex flex-col justify-center px-6 duration-500 lg:px-16 ${useFullBackground ? "lg:min-h-[350px] lg:max-w-[930px]" : ""} ${backgroundImage && mobileBackgroundBehindText ? "min-h-[330px]" : ""}`}>
           {breadcrumbs.length > 0 && (
             <nav className={`mb-7 flex flex-wrap items-center gap-2 text-[11px] ${isLight ? "text-slate-500" : "text-white/45"}`}>
               <Link to="/" aria-label="Home" className={isLight ? "hover:text-[#2583ff]" : "hover:text-[#66b2ff]"}><Home className="h-3.5 w-3.5" /></Link>
@@ -98,11 +96,11 @@ export const PageHero = ({
           <h1 className={`${compact ? "text-[38px] lg:text-[52px]" : "text-[46px] lg:text-[68px]"} max-w-4xl font-medium leading-[1.02] tracking-[-.05em]`}>{title}</h1>
           {description && <p className={`mt-5 max-w-2xl text-[14px] leading-7 ${isLight ? "text-slate-600" : "text-white/60"}`}>{description}</p>}
           {ctaText && <Link to={ctaHref} className="mt-8 inline-flex w-fit items-center gap-8 bg-[#2583ff] px-6 py-4 text-sm font-semibold text-[#041126] hover:bg-[#6db6ff]">{ctaText}<ArrowRight className="h-4 w-4" /></Link>}
-        </motion.div>
+        </div>
 
         {backgroundImage && !useFullBackground && (
           <div className={`relative min-h-[300px] border-t lg:min-h-full lg:border-l lg:border-t-0 ${mobileBackgroundBehindText ? "hidden lg:block" : ""} ${isLight ? "border-slate-200" : "border-white/15"}`}>
-            <img src={backgroundImage} onError={(event) => { event.currentTarget.src = "/techwin-network-hero.webp"; }} alt="" aria-hidden="true" className={`absolute inset-0 h-full w-full object-cover ${isLight ? "" : "site-blue-image opacity-70"}`} style={{ objectPosition: backgroundPosition }} />
+            <img src={backgroundImage} fetchPriority="high" decoding="async" onError={(event) => { event.currentTarget.src = "/techwin-network-hero.webp"; }} alt="" aria-hidden="true" className={`absolute inset-0 h-full w-full object-cover ${isLight ? "" : "site-blue-image opacity-70"}`} style={{ objectPosition: backgroundPosition }} />
             {!isLight && <div className="absolute inset-0 bg-[#071e45]/15" />}
           </div>
         )}
@@ -111,6 +109,8 @@ export const PageHero = ({
           <div className={`relative min-h-[220px] border-t lg:hidden ${isLight ? "border-slate-200" : "border-white/15"}`}>
             <img
               src={mobileBackgroundImage || backgroundImage}
+              fetchPriority="high"
+              decoding="async"
               onError={(event) => { event.currentTarget.src = "/techwin-network-hero.webp"; }}
               alt=""
               aria-hidden="true"

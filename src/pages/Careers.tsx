@@ -16,6 +16,7 @@ import { useData } from "@/context/DataContext";
 import { Link } from "@/lib/router";
 import { useToast } from "@/hooks/use-toast";
 import { submitToFormspree } from "@/lib/formspree";
+import { Toaster } from "@/components/ui/toaster";
 
 const Careers = () => {
   const seo = useSEO();
@@ -90,6 +91,7 @@ const Careers = () => {
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-neutral-900 selection:bg-[#2583ff] selection:text-white">
       <SEO {...seo} />
+      <Toaster />
       <Navbar />
 
       {/* Dell-inspired Page Hero Section */}

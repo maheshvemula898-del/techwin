@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "@/lib/router";
 import { Menu, X, Globe2, ChevronDown } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
 
 const links = [
   ["Industries", "/industries"],
@@ -32,7 +31,7 @@ export const Navbar = () => {
     <header className="site-navbar fixed inset-x-0 top-0 z-50 border-b border-white/15 bg-[#061a3a]/95 text-white backdrop-blur-xl">
       <div className="mx-auto flex h-[72px] max-w-[1512px] items-center px-5 lg:px-10">
         <Link to="/" aria-label="Techwin Systems home" className="brand-logo-shell mr-auto">
-          <img src="/assets/techwen-systems-logo.jpeg" alt="Techwin Systems Private Limited" className="brand-logo brand-logo-header" />
+          <img src="/assets/techwen-systems-logo.jpeg" alt="Techwin Systems Private Limited" fetchPriority="high" decoding="async" className="brand-logo brand-logo-header" />
         </Link>
         <nav className="hidden items-center gap-7 xl:flex">
           <div className="group relative h-[72px] flex items-center">
@@ -62,28 +61,20 @@ export const Navbar = () => {
         <Link to="/contact" className="mobile-header-contact ml-3 inline-flex items-center justify-center rounded-full border border-black bg-white px-4 py-2 text-[12px] font-semibold text-black shadow-[0_6px_18px_rgba(21,35,52,.08)] transition-transform active:scale-95 lg:hidden">
           Contact
         </Link>
-        <motion.button aria-label="Toggle navigation" aria-expanded={open} onClick={() => { setOpen(!open); if (open) setServicesOpen(false); }} whileTap={{ scale: 0.9 }} className="ml-5 p-2 xl:hidden">
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.span key={open ? "close" : "menu"} initial={{ opacity: 0, rotate: -45, scale: 0.75 }} animate={{ opacity: 1, rotate: 0, scale: 1 }} exit={{ opacity: 0, rotate: 45, scale: 0.75 }} transition={{ duration: 0.18 }} className="block">
-              {open ? <X /> : <Menu />}
-            </motion.span>
-          </AnimatePresence>
-        </motion.button>
+        <button aria-label="Toggle navigation" aria-expanded={open} onClick={() => { setOpen(!open); if (open) setServicesOpen(false); }} className="ml-5 p-2 transition-transform active:scale-90 xl:hidden">
+          <span className="block transition-transform duration-200">{open ? <X /> : <Menu />}</span>
+        </button>
       </div>
-      <AnimatePresence>
-        {open && (
-          <motion.nav initial={{ opacity: 0, height: 0, y: -12 }} animate={{ opacity: 1, height: "auto", y: 0 }} exit={{ opacity: 0, height: 0, y: -10 }} transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }} className="overflow-hidden border-t border-white/10 bg-[#0b2f68] shadow-[0_24px_45px_rgba(0,0,0,.24)] xl:hidden">
-            <motion.div initial="hidden" animate="show" variants={{ hidden: {}, show: { transition: { staggerChildren: 0.055, delayChildren: 0.08 } } }} className="grid px-5 py-4">
-              <motion.button variants={{ hidden: { opacity: 0, y: -8 }, show: { opacity: 1, y: 0 } }} type="button" aria-expanded={servicesOpen} onClick={() => setServicesOpen(!servicesOpen)} whileTap={{ scale: 0.985 }} className="flex items-center justify-between border-b border-white/10 py-3 text-left text-sm"><span>Services</span><motion.span animate={{ rotate: servicesOpen ? 180 : 0 }} transition={{ duration: 0.25 }}><ChevronDown className="h-4 w-4" /></motion.span></motion.button>
-              <AnimatePresence initial={false}>
-                {servicesOpen && <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }} className="grid overflow-hidden border-b border-white/10 bg-white/5 px-4"><div className="grid py-2">{serviceLinks.map(([label, href], index) => <motion.div key={href} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.035 }}><Link to={href} onClick={() => { setOpen(false); setServicesOpen(false); }} className="block py-2.5 text-xs text-white/75 transition-colors hover:text-white">{label}</Link></motion.div>)}</div></motion.div>}
-              </AnimatePresence>
-              {links.map(([label, href]) => <motion.div key={href} variants={{ hidden: { opacity: 0, y: -8 }, show: { opacity: 1, y: 0 } }}><Link to={href} onClick={() => { setOpen(false); setServicesOpen(false); }} className="block border-b border-white/10 py-3 text-sm text-white/85">{label}</Link></motion.div>)}
-              <motion.a variants={{ hidden: { opacity: 0, y: -8 }, show: { opacity: 1, y: 0 } }} href="mailto:info@techwensys.com" className="pt-4 text-sm text-[#66b2ff]">info@techwensys.com</motion.a>
-            </motion.div>
-          </motion.nav>
-        )}
-      </AnimatePresence>
+      {open && (
+        <nav className="animate-in slide-in-from-top-2 overflow-hidden border-t border-white/10 bg-[#0b2f68] shadow-[0_24px_45px_rgba(0,0,0,.24)] duration-300 xl:hidden">
+          <div className="grid px-5 py-4">
+            <button type="button" aria-expanded={servicesOpen} onClick={() => setServicesOpen(!servicesOpen)} className="flex items-center justify-between border-b border-white/10 py-3 text-left text-sm transition-transform active:scale-[.985]"><span>Services</span><span className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}><ChevronDown className="h-4 w-4" /></span></button>
+            {servicesOpen && <div className="animate-in fade-in slide-in-from-top-1 grid overflow-hidden border-b border-white/10 bg-white/5 px-4 duration-200"><div className="grid py-2">{serviceLinks.map(([label, href]) => <div key={href}><Link to={href} onClick={() => { setOpen(false); setServicesOpen(false); }} className="block py-2.5 text-xs text-white/75 transition-colors hover:text-white">{label}</Link></div>)}</div></div>}
+            {links.map(([label, href]) => <div key={href}><Link to={href} onClick={() => { setOpen(false); setServicesOpen(false); }} className="block border-b border-white/10 py-3 text-sm text-white/85">{label}</Link></div>)}
+            <a href="mailto:info@techwensys.com" className="pt-4 text-sm text-[#66b2ff]">info@techwensys.com</a>
+          </div>
+        </nav>
+      )}
     </header>
   );
 };

@@ -12,9 +12,14 @@ import {
   initialPageTexts
 } from "@/data/pageContentData";
 import { seoData as initialSeoData } from "@/data/seoData";
-import { db, isFirebaseConfigured } from "@/lib/firebase";
-import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { getAdminApiHeaders } from "@/lib/adminApi";
+
+const hasFirebaseConfig = Boolean(
+  import.meta.env.VITE_FIREBASE_API_KEY &&
+  import.meta.env.VITE_FIREBASE_AUTH_DOMAIN &&
+  import.meta.env.VITE_FIREBASE_PROJECT_ID &&
+  import.meta.env.VITE_FIREBASE_APP_ID
+);
 
 // Define default initial fallback state
 export const defaultFallbackContent: WebsiteContent = {
@@ -283,7 +288,12 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
           console.warn("Express Backend API not available, trying Firebase/LocalStorage fallback...", apiErr);
         }
 
-        if (isFirebaseConfigured) {
+        if (hasFirebaseConfig) {
+          const [{ db }, { doc, getDoc, setDoc }] = await Promise.all([
+            import("@/lib/firebase"),
+            import("firebase/firestore"),
+          ]);
+          if (!db) throw new Error("Firebase is not available.");
           const docRef = doc(db, "content", "website_data");
           const docSnap = await getDoc(docRef);
           
@@ -334,8 +344,13 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
 
       // Also persist to Firebase/LocalStorage as secondary
-      if (isFirebaseConfigured) {
+      if (hasFirebaseConfig) {
         try {
+          const [{ db }, { doc, setDoc }] = await Promise.all([
+            import("@/lib/firebase"),
+            import("firebase/firestore"),
+          ]);
+          if (!db) throw new Error("Firebase is not available.");
           const docRef = doc(db, "content", "website_data");
           await setDoc(docRef, newContent);
         } catch (firebaseErr: any) {
@@ -358,7 +373,7 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   return (
-    <DataContext.Provider value={{ content, loading, error, isFirebase: isFirebaseConfigured, updateContent }}>
+    <DataContext.Provider value={{ content, loading, error, isFirebase: hasFirebaseConfig, updateContent }}>
       {children}
     </DataContext.Provider>
   );
