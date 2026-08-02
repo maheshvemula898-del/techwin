@@ -168,8 +168,8 @@ const DynamicService = () => {
           </div>
         </section>
 
-        <section className="bg-[#061a3a] px-4 py-12 text-white sm:px-6 md:py-20 lg:px-8">
-          <div className="mx-auto max-w-[1440px] overflow-hidden rounded-[28px] border border-white/20 bg-[#071f44] shadow-[0_24px_70px_rgba(0,0,0,0.24)]">
+        <section className="bg-white px-4 py-12 text-white sm:px-6 md:py-20 lg:px-8">
+          <div className="mx-auto max-w-7xl overflow-hidden rounded-[24px] border border-white/20 bg-[#071f44] shadow-[0_24px_70px_rgba(0,0,0,0.24)] sm:rounded-[28px]">
             <div className="grid lg:grid-cols-[.72fr_1.28fr]">
               <div className="p-8 sm:p-10 lg:p-14">
                 <p className="text-[11px] font-bold uppercase tracking-[.2em] text-[#8dbbff]">Delivery approach</p>

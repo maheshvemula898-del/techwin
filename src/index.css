@@ -368,6 +368,23 @@
   color: #315f98 !important;
 }
 
+.site-navbar .services-mega-menu .services-mega-cta {
+  color: #ffffff !important;
+}
+
+.site-navbar .services-mega-menu .services-mega-cta:hover {
+  color: #f5c518 !important;
+}
+
+.site-navbar .services-mega-menu .services-mega-link {
+  color: #0f172a !important;
+}
+
+.site-navbar .mobile-navigation-panel .mobile-contact-link,
+.site-navbar .mobile-navigation-panel .mobile-view-services {
+  color: #315f98 !important;
+}
+
 .site-footer {
   background-color: #ffffff !important;
   background-image: none !important;
