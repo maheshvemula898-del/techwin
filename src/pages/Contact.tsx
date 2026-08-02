@@ -98,7 +98,8 @@ const Contact = () => {
         backgroundPosition="right top"
         backgroundSize="cover"
         mobileBackgroundImage="/contact-hero-support.jpg"
-        mobileBackgroundPosition="76% center"
+        mobileBackgroundPosition="right center"
+        mobileBackgroundBehindText={true}
         extraPadding={false}
         compact={true}
       />

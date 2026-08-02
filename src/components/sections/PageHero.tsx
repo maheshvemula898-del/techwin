@@ -20,6 +20,7 @@ interface PageHeroProps {
   mobileBackgroundImage?: string;
   mobileBackgroundPosition?: string;
   mobileBackgroundSize?: string;
+  mobileBackgroundBehindText?: boolean;
   backgroundSize?: string;
 }
 
@@ -38,6 +39,7 @@ export const PageHero = ({
   mobileBackgroundImage,
   mobileBackgroundPosition = "center",
   mobileBackgroundSize = "cover",
+  mobileBackgroundBehindText = true,
   backgroundSize = "cover",
 }: PageHeroProps) => {
   const isLight = textBgWhite;
@@ -60,12 +62,26 @@ export const PageHero = ({
         <div className="absolute inset-x-0 bottom-0 top-[72px] hidden bg-gradient-to-r from-[#071e45]/95 via-[#071e45]/75 to-[#071e45]/20 lg:block" />
       )}
 
+      {backgroundImage && mobileBackgroundBehindText && (
+        <>
+          <img
+            src={mobileBackgroundImage || backgroundImage}
+            onError={(event) => { event.currentTarget.src = "/techwin-network-hero.webp"; }}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-x-0 bottom-0 top-[72px] h-[calc(100%_-_72px)] w-full object-cover lg:hidden"
+            style={{ objectPosition: mobileBackgroundPosition, objectFit: mobileBackgroundSize === "contain" ? "contain" : "cover" }}
+          />
+          <div className={`absolute inset-x-0 bottom-0 top-[72px] lg:hidden ${isLight ? "bg-gradient-to-r from-white via-white/90 to-white/20" : "bg-gradient-to-r from-[#071e45]/95 via-[#071e45]/80 to-[#071e45]/20"}`} />
+        </>
+      )}
+
       <div className={`relative mx-auto grid max-w-[1512px] ${backgroundImage && !useFullBackground ? "lg:grid-cols-[1.08fr_.72fr]" : "grid-cols-1"}`}>
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: .5 }}
-          className={`${compact ? "py-12 lg:py-16" : "py-20 lg:py-28"} relative z-10 flex flex-col justify-center px-6 lg:px-16 ${useFullBackground ? "lg:min-h-[350px] lg:max-w-[930px]" : ""}`}
+          className={`${compact ? "py-12 lg:py-16" : "py-20 lg:py-28"} relative z-10 flex flex-col justify-center px-6 lg:px-16 ${useFullBackground ? "lg:min-h-[350px] lg:max-w-[930px]" : ""} ${backgroundImage && mobileBackgroundBehindText ? "min-h-[330px]" : ""}`}
         >
           {breadcrumbs.length > 0 && (
             <nav className={`mb-7 flex flex-wrap items-center gap-2 text-[11px] ${isLight ? "text-slate-500" : "text-white/45"}`}>
@@ -85,13 +101,13 @@ export const PageHero = ({
         </motion.div>
 
         {backgroundImage && !useFullBackground && (
-          <div className={`relative min-h-[300px] border-t lg:min-h-full lg:border-l lg:border-t-0 ${isLight ? "border-slate-200" : "border-white/15"}`}>
+          <div className={`relative min-h-[300px] border-t lg:min-h-full lg:border-l lg:border-t-0 ${mobileBackgroundBehindText ? "hidden lg:block" : ""} ${isLight ? "border-slate-200" : "border-white/15"}`}>
             <img src={backgroundImage} onError={(event) => { event.currentTarget.src = "/techwin-network-hero.webp"; }} alt="" aria-hidden="true" className={`absolute inset-0 h-full w-full object-cover ${isLight ? "" : "site-blue-image opacity-70"}`} style={{ objectPosition: backgroundPosition }} />
             {!isLight && <div className="absolute inset-0 bg-[#071e45]/15" />}
           </div>
         )}
 
-        {backgroundImage && useFullBackground && (
+        {backgroundImage && useFullBackground && !mobileBackgroundBehindText && (
           <div className={`relative min-h-[220px] border-t lg:hidden ${isLight ? "border-slate-200" : "border-white/15"}`}>
             <img
               src={mobileBackgroundImage || backgroundImage}
