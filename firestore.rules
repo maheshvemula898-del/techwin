@@ -1,0 +1,52 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email == "maheshvemula898@gmail.com";
+    }
+
+    function isValidImageDocument() {
+      return request.resource.data.keys().hasAll([
+          "name", "contentType", "dataUrl", "byteSize", "alt", "updatedAt"
+        ])
+        && request.resource.data.keys().hasOnly([
+          "name", "contentType", "dataUrl", "byteSize", "alt", "createdAt", "updatedAt"
+        ])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() <= 200
+        && request.resource.data.contentType in ["image/jpeg", "image/png", "image/webp", "image/gif"]
+        && request.resource.data.dataUrl is string
+        && request.resource.data.dataUrl.size() <= 750000
+        && request.resource.data.byteSize is int
+        && request.resource.data.byteSize > 0
+        && request.resource.data.byteSize <= 550000
+        && request.resource.data.alt is string
+        && request.resource.data.alt.size() <= 300;
+    }
+    
+    // Allow public read access to content configuration documents
+    match /content/{document} {
+      allow read: if true;
+    }
+    
+    // Administrative writes are restricted to the verified administrator account.
+    match /content/{document} {
+      allow write: if isAdmin();
+    }
+
+    // Firestore-only image documents. Images must be optimized and stored
+    // individually as data URLs so each document remains below 1 MiB.
+    match /media/{imageId} {
+      allow read: if true;
+      allow create, update: if isAdmin() && isValidImageDocument();
+      allow delete: if isAdmin();
+    }
+
+    match /{document=**} {
+      allow read, write: if isAdmin();
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Techwin Systems - Enterprise IT Services",
+  "short_name": "Techwin Systems",
+  "description": "Complete Enterprise IT Services, DevOps & Cybersecurity",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0096d6",
+  "orientation": "portrait-primary"
+}
