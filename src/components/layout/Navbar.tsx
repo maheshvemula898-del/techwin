@@ -56,10 +56,12 @@ export const Navbar = () => {
           ))}
         </nav>
         <div className="ml-8 hidden items-center gap-5 border-l border-white/15 pl-7 lg:flex">
-          <Link to="/admin" className="text-[12px] text-white/80 hover:text-[#66b2ff]">Sign In</Link>
           <a href="mailto:info@techwensys.com" className="text-[12px] text-white/80 hover:text-[#66b2ff]">info@techwensys.com</a>
           <button className="flex items-center gap-1.5 text-[12px] text-white/80 hover:text-[#66b2ff]"><Globe2 className="h-4 w-4" />US/EN<ChevronDown className="h-3 w-3" /></button>
         </div>
+        <Link to="/contact" className="mobile-header-contact ml-3 inline-flex items-center justify-center rounded-full border border-black bg-white px-4 py-2 text-[12px] font-semibold text-black shadow-[0_6px_18px_rgba(21,35,52,.08)] transition-transform active:scale-95 lg:hidden">
+          Contact
+        </Link>
         <motion.button aria-label="Toggle navigation" aria-expanded={open} onClick={() => { setOpen(!open); if (open) setServicesOpen(false); }} whileTap={{ scale: 0.9 }} className="ml-5 p-2 xl:hidden">
           <AnimatePresence mode="wait" initial={false}>
             <motion.span key={open ? "close" : "menu"} initial={{ opacity: 0, rotate: -45, scale: 0.75 }} animate={{ opacity: 1, rotate: 0, scale: 1 }} exit={{ opacity: 0, rotate: 45, scale: 0.75 }} transition={{ duration: 0.18 }} className="block">

@@ -979,3 +979,47 @@
 .modern-admin-theme .scrollbar-thin::-webkit-scrollbar-thumb {
   background: #475569 !important;
 }
+
+/* Desktop home hero content panel. */
+@media (min-width: 1024px) {
+  .enterprise-theme .home-enterprise-hero .desktop-hero-copy {
+    background: #ffffff !important;
+    color: #123f75 !important;
+    border-color: #dce5ef !important;
+  }
+
+  .enterprise-theme .home-enterprise-hero .desktop-hero-eyebrow,
+  .enterprise-theme .home-enterprise-hero .desktop-hero-title {
+    color: #174f91 !important;
+  }
+
+  .enterprise-theme .home-enterprise-hero .desktop-hero-description {
+    color: #456482 !important;
+  }
+
+  .enterprise-theme #desktop-hero-primary,
+  .enterprise-theme #desktop-hero-primary:hover {
+    border: 1px solid #174f91 !important;
+    border-radius: 9999px !important;
+    background-color: #174f91 !important;
+    background-image: none !important;
+    color: #ffffff !important;
+    box-shadow: 0 12px 28px rgba(23, 79, 145, .22) !important;
+  }
+
+  .enterprise-theme .home-enterprise-hero .desktop-hero-secondary,
+  .enterprise-theme .home-enterprise-hero .desktop-hero-secondary:hover {
+    color: #174f91 !important;
+    border-color: #174f91 !important;
+  }
+
+  .enterprise-theme .home-enterprise-hero .desktop-hero-secondary svg,
+  .enterprise-theme .home-enterprise-hero .desktop-hero-insight,
+  .enterprise-theme .home-enterprise-hero .desktop-hero-insight span {
+    color: #315f98 !important;
+  }
+
+  .enterprise-theme .home-enterprise-hero .desktop-hero-insight {
+    border-color: #dce5ef !important;
+  }
+}

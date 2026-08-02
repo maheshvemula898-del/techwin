@@ -52,18 +52,18 @@ const Index = () => {
       <main className="pt-[72px]">
         <section className="home-enterprise-hero bg-[#071e45] text-white">
           <div className="mx-auto grid max-w-[1512px] lg:grid-cols-[1.06fr_.9fr_.6fr]">
-            <div className="flex min-h-[630px] flex-col justify-center border-white/15 px-6 py-16 lg:border-r lg:px-16">
-              <p className="mb-10 text-[10px] font-bold uppercase tracking-[0.24em] text-[#66b2ff]">Global technology services</p>
-              <h1 className="max-w-[560px] text-[48px] font-medium leading-[.98] tracking-[-.055em] sm:text-[64px] xl:text-[72px]">Engineering<br />Secure Digital<br />Enterprises</h1>
-              <p className="mt-7 max-w-[520px] text-[15px] leading-7 text-white/65">Techwin Systems Pvt Limited delivers DevOps, cybersecurity, cloud, software engineering, data and AI, and managed technology solutions for global enterprises.</p>
+            <div className="desktop-hero-copy flex min-h-[630px] flex-col justify-center border-white/15 px-6 py-16 lg:min-h-[567px] lg:border-r lg:px-16 lg:py-5">
+              <p className="desktop-hero-eyebrow mb-10 text-[10px] font-bold uppercase tracking-[0.24em] text-[#66b2ff]">Global technology services</p>
+              <h1 className="desktop-hero-title max-w-[560px] text-[48px] font-medium leading-[.98] tracking-[-.055em] sm:text-[64px] xl:text-[72px]">Engineering<br />Secure Digital<br />Enterprises</h1>
+              <p className="desktop-hero-description mt-7 max-w-[520px] text-[15px] leading-7 text-white/65">Techwin Systems Pvt Limited delivers DevOps, cybersecurity, cloud, software engineering, data and AI, and managed technology solutions for global enterprises.</p>
               <div className="mt-8 flex flex-wrap items-center gap-8">
-                <Link to="/services" className="inline-flex items-center gap-8 bg-[#2583ff] px-7 py-4 text-sm font-semibold text-[#041126] transition-colors hover:bg-[#5daaff]">Explore solutions <ArrowRight className="h-4 w-4" /></Link>
-                <Link to="/contact" className="inline-flex items-center gap-8 border-b border-[#66b2ff] py-3 text-sm">Book consultation <ArrowRight className="h-4 w-4 text-[#66b2ff]" /></Link>
+                <Link id="desktop-hero-primary" to="/services" className="desktop-hero-primary inline-flex items-center gap-8 bg-[#2583ff] px-7 py-4 text-sm font-semibold text-[#041126] transition-colors hover:bg-[#5daaff]">Explore solutions <ArrowRight className="h-4 w-4" /></Link>
+                <Link to="/contact" className="desktop-hero-secondary inline-flex items-center gap-8 border-b border-[#66b2ff] py-3 text-sm">Book consultation <ArrowRight className="h-4 w-4 text-[#66b2ff]" /></Link>
               </div>
-              <div className="mt-12 border-t border-white/15 pt-5 text-xs text-white/55"><span className="mr-5 font-bold uppercase tracking-[0.16em] text-[#66b2ff]">Latest insight</span><span>Building cyber resilience for the AI era</span></div>
+              <div className="desktop-hero-insight mt-12 border-t border-white/15 pt-5 text-xs text-white/55"><span className="mr-5 font-bold uppercase tracking-[0.16em] text-[#66b2ff]">Latest insight</span><span>Building cyber resilience for the AI era</span></div>
             </div>
 
-            <div className="hidden min-h-[450px] overflow-hidden border-white/15 lg:block lg:min-h-[630px] lg:border-r"><img src="/techwin-network-hero.webp" alt="Secure global data network" className="site-blue-image h-full w-full object-cover" /></div>
+            <div className="hidden min-h-[450px] overflow-hidden border-white/15 bg-[#071e45] lg:block lg:min-h-[567px] lg:border-r"><img src="/techwin-ai-hero.webp" alt="Artificial intelligence and connected technology" className="site-blue-image h-full w-full object-cover object-center" /></div>
 
             <aside className="hidden px-7 py-12 lg:block lg:px-9">
               <div>{priorities.map(({icon: Icon,title,text,href}) => <Link key={title} to={href} className="group block border-b border-white/15 py-7"><Icon className="mb-4 h-8 w-8 text-[#66b2ff]" strokeWidth={1.5}/><div className="flex items-center justify-between"><h2 className="text-[16px] font-semibold">{title}</h2><ArrowRight className="h-4 w-4 text-[#66b2ff] transition-transform group-hover:translate-x-1" /></div><p className="mt-2 max-w-[230px] text-[13px] leading-5 text-white/55">{text}</p></Link>)}</div>

@@ -146,7 +146,7 @@ export default function AdminPanel() {
       } else {
         setCompanyName("Techwin Systems Pvt Limited");
         setBrandName("Techwin Systems");
-        setDomain("Techwin Systems.com");
+        setDomain("techwensys.com");
         setTwitterHandle("Techwin Systems");
         setFaviconUrl("/favicon.png");
         setPreviewImageUrl("/hero-preview.png");
@@ -1250,7 +1250,7 @@ export default function AdminPanel() {
                     </div>
                     <div className="space-y-1">
                       <label className="text-xs font-semibold text-slate-700">Canonical Domain Name</label>
-                      <Input value={domain} onChange={(e) => setDomain(e.target.value)} className="bg-slate-50 border-slate-200 text-xs h-9 rounded-lg" placeholder="e.g. Techwin Systems.com" />
+                      <Input value={domain} onChange={(e) => setDomain(e.target.value)} className="bg-slate-50 border-slate-200 text-xs h-9 rounded-lg" placeholder="e.g. techwensys.com" />
                     </div>
                     <div className="space-y-1">
                       <label className="text-xs font-semibold text-slate-700">Twitter Handle</label>
