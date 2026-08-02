@@ -41,8 +41,16 @@ export const Navbar = () => {
         </Link>
 
         <nav className="hidden items-center gap-7 xl:flex">
-          <div className="flex h-[72px] items-center">
-            <button type="button" aria-expanded={desktopServicesOpen} onClick={() => setDesktopServicesOpen((current) => !current)} className={`inline-flex items-center gap-1 text-[13px] transition-colors ${location.pathname.startsWith("/services") ? "text-[#315f98]" : "text-neutral-800"}`}>
+          <div
+            className="flex h-[72px] items-center"
+            onMouseEnter={() => setDesktopServicesOpen(true)}
+            onMouseLeave={() => setDesktopServicesOpen(false)}
+            onFocus={() => setDesktopServicesOpen(true)}
+            onBlur={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget)) setDesktopServicesOpen(false);
+            }}
+          >
+            <button type="button" aria-expanded={desktopServicesOpen} onClick={() => setDesktopServicesOpen(true)} className={`inline-flex items-center gap-1 text-[13px] transition-colors ${location.pathname.startsWith("/services") ? "text-[#315f98]" : "text-neutral-800"}`}>
               Services <ChevronDown className={`h-3.5 w-3.5 transition-transform ${desktopServicesOpen ? "rotate-180" : ""}`} />
             </button>
 
