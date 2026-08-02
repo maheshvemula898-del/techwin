@@ -22,7 +22,7 @@ export const useSEO = () => {
   return {
     title: `${pageName} | Techwin Systems`,
     description: `Explore ${pageName.toLowerCase()} capabilities, insights, and enterprise technology guidance from Techwin Systems.`,
-    keywords: `${pageName.toLowerCase()}, enterprise technology, Techwin Systems`,
+    keywords: `${pageName.toLowerCase()}, enterprise technology, Techwin Systems, Techwin Systems Pvt Limited, techwensys.com, info@techwensys.com`,
     canonical: `https://techwensys.com${pathname === "/" ? "/" : pathname.replace(/\/$/, "")}`,
   };
 };

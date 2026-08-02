@@ -134,7 +134,7 @@ This audit identified and resolved **critical indexing issues** that were preven
 **Fix Applied:**
 - ✅ Updated `SEO.tsx` to ensure canonical URLs are always absolute
 - ✅ Added safety check for `window` object
-- ✅ All canonical URLs now use format: `https://Techwin Systems.com/path`
+- ✅ All canonical URLs now use format: `https://techwensys.com/path`
 
 **File Modified:** `src/components/SEO.tsx`
 
@@ -146,7 +146,7 @@ This audit identified and resolved **critical indexing issues** that were preven
 - Reduced crawl efficiency
 
 **Fix Applied:**
-- ✅ Added `Sitemap: https://Techwin Systems.com/sitemap.xml` to robots.txt
+- ✅ Added `Sitemap: https://techwensys.com/sitemap.xml` to robots.txt
 
 **File Modified:** `public/robots.txt`
 
@@ -250,7 +250,7 @@ This audit identified and resolved **critical indexing issues** that were preven
 **Immediate Actions:**
 1. **Submit updated sitemap** in Google Search Console:
    - Go to Sitemaps section
-   - Resubmit `https://Techwin Systems.com/sitemap.xml`
+   - Resubmit `https://techwensys.com/sitemap.xml`
    - Wait for processing (24-48 hours)
 
 2. **Request indexing for fixed pages:**

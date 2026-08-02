@@ -37,7 +37,7 @@ export const Footer = () => (
       <div className="grid gap-12 border-b border-neutral-200 pb-16 lg:grid-cols-[1.5fr_2fr]">
         <div>
           <Link to="/" aria-label="Techwin Systems home" className="brand-logo-shell inline-flex">
-            <img src="/assets/techwen-systems-logo.jpeg" alt="Techwin Systems Private Limited" className="brand-logo brand-logo-footer" />
+            <img src="/assets/techwen-systems-logo.jpeg" alt="Techwin Systems Private Limited" loading="lazy" decoding="async" className="brand-logo brand-logo-footer" />
           </Link>
           <p className="mt-5 max-w-sm text-sm leading-6 text-neutral-600">
             Engineering secure, resilient digital enterprises through technology expertise and accountable delivery.

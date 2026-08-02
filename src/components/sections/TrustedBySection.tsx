@@ -41,6 +41,8 @@ export const TrustedBySection = () => {
                   <img
                     src={item.logo}
                     alt={`${item.name} logo`}
+                    loading="lazy"
+                    decoding="async"
                     className={`${item.large ? 'h-9 md:h-11 lg:h-14' : 'h-6 md:h-7 lg:h-9'} w-auto max-w-[120px] md:max-w-[150px] object-contain grayscale contrast-125 transition-all duration-300 opacity-55 hover:grayscale-0 hover:opacity-100`}
                   />
                 ) : (
@@ -61,6 +63,8 @@ export const TrustedBySection = () => {
                   <img
                     src={item.logo}
                     alt={`${item.name} logo`}
+                    loading="lazy"
+                    decoding="async"
                     className={`${item.large ? 'h-9 md:h-11 lg:h-14' : 'h-6 md:h-7 lg:h-9'} w-auto max-w-[120px] md:max-w-[150px] object-contain grayscale contrast-125 transition-all duration-300 opacity-55 hover:grayscale-0 hover:opacity-100`}
                   />
                 ) : (

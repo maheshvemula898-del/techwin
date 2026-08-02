@@ -1,14 +1,9 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "@/lib/router";
 import { HelmetProvider } from "react-helmet-async";
 import { lazy, Suspense } from "react";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { CookieConsent } from "./components/CookieConsent";
 import { DataProvider } from "./context/DataContext";
-import { AuthProvider } from "./context/AuthContext";
 
 const Index = lazy(() => import("./pages/Index"));
 const Products = lazy(() => import("./pages/Products"));
@@ -51,7 +46,7 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Careers = lazy(() => import("./pages/Careers"));
 const WhoWeAre = lazy(() => import("./pages/WhoWeAre"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-const Admin = lazy(() => import("./pages/Admin"));
+const AdminRoute = lazy(() => import("./pages/AdminRoute"));
 const Privacy = lazy(() => import("./pages/legal/Privacy"));
 const Legal = lazy(() => import("./pages/legal/Legal"));
 const Cookies = lazy(() => import("./pages/legal/Cookies"));
@@ -59,16 +54,9 @@ const Terms = lazy(() => import("./pages/legal/Terms"));
 const DynamicService = lazy(() => import("./pages/services/DynamicService"));
 const DynamicIndustry = lazy(() => import("./pages/industries/DynamicIndustry"));
 
-const queryClient = new QueryClient();
-
 const App = () => (
   <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <DataProvider>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
+    <DataProvider>
             <BrowserRouter>
           <div className="enterprise-theme">
           <ScrollToTop />
@@ -135,17 +123,14 @@ const App = () => (
           <Route path="/terms" element={<Terms />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="/p/:slug" element={<DynamicPage />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin" element={<AdminRoute />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         </Suspense>
       <CookieConsent />
       </div>
       </BrowserRouter>
-    </TooltipProvider>
-   </DataProvider>
-  </AuthProvider>
- </QueryClientProvider>
+    </DataProvider>
  </HelmetProvider>
 );
 

@@ -53,9 +53,18 @@ export const SEO = ({
     .replace(/Techwin Systems/gi, companyName)
     .replace(/Techwin Systems/gi, brandName);
 
-  const finalKeywords = rawKeywords
+  const pageKeywords = rawKeywords
     .replace(/Techwin Systems/gi, companyName)
     .replace(/Techwin Systems/gi, brandName);
+  const domainKeywords = [domain, `www.${domain}`, `info@${domain}`, brandName, companyName];
+  const finalKeywords = Array.from(
+    new Set(
+      `${pageKeywords}, ${domainKeywords.join(", ")}`
+        .split(",")
+        .map((keyword) => keyword.trim())
+        .filter(Boolean)
+    )
+  ).join(", ");
 
   const fullTitle = finalTitle.includes(brandName) ? finalTitle : `${finalTitle} | ${companyName}`;
 

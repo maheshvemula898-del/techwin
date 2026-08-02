@@ -99,6 +99,8 @@ const DynamicIndustry = () => {
                   <img
                     src={industry.image || "/techwin-network-hero.webp"}
                     alt={cleanMarkdown(industry.title)}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover rounded-none"
                   />
                 </div>
