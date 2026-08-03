@@ -33,7 +33,7 @@ const Legal = () => {
 
             <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">Company Information</h2>
             <p className="text-muted-foreground mb-6">
-              <strong>Company Name:</strong> Techwin Systems Pvt Limited<br />
+              <strong>Company Name:</strong> Techwen Systems Pvt Limited<br />
               <strong>Established:</strong> 26 September 2011<br />
               <strong>Registered Office:</strong> 130, 4th Floor, Sant Nagar, East of Kailash, New Delhi - 110065<br />
               <strong>Phone:</strong> +91 98669 78808, +91 94944 32286<br />
@@ -47,17 +47,17 @@ const Legal = () => {
 
             <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">Limitation of Liability</h2>
             <p className="text-muted-foreground mb-6">
-              In no event shall Techwin Systems be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arising out of, or in connection with, the use of this website.
+              In no event shall Techwen Systems be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arising out of, or in connection with, the use of this website.
             </p>
 
             <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">External Links</h2>
             <p className="text-muted-foreground mb-6">
-              Through this website, you may be able to link to other websites which are not under the control of Techwin Systems. We have no control over the nature, content, and availability of those sites. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.
+              Through this website, you may be able to link to other websites which are not under the control of Techwen Systems. We have no control over the nature, content, and availability of those sites. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.
             </p>
 
             <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">Intellectual Property</h2>
             <p className="text-muted-foreground mb-6">
-              All content on this website, including but not limited to text, graphics, logos, images, and software, is the property of Techwin Systems or its content suppliers and is protected by international copyright laws. Unauthorized reproduction or distribution of this content is strictly prohibited.
+              All content on this website, including but not limited to text, graphics, logos, images, and software, is the property of Techwen Systems or its content suppliers and is protected by international copyright laws. Unauthorized reproduction or distribution of this content is strictly prohibited.
             </p>
 
 

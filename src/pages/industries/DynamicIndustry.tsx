@@ -35,7 +35,7 @@ const DynamicIndustry = () => {
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-[#1d1d1d] flex flex-col">
       <SEO 
-        title={`${cleanMarkdown(industry.title)} Technology Solutions | Techwin Systems`}
+        title={`${cleanMarkdown(industry.title)} Technology Solutions | Techwen Systems`}
         description={`${cleanMarkdown(industry.description)} Explore industry-focused cloud, security, data, application, and managed technology capabilities.`}
       />
       <Navbar />

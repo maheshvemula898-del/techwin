@@ -26,15 +26,15 @@ const Careers = () => {
   const pageTexts = content.pageTexts;
   const textContent = pageTexts?.careers || {
     heroTitle: "Join Our Team",
-    heroDescription: "Build your career with Techwin Systems and help transform businesses through innovative SAP solutions. We're looking for talented individuals who share our passion for excellence.",
+    heroDescription: "Build your career with Techwen Systems and help transform businesses through innovative SAP solutions. We're looking for talented individuals who share our passion for excellence.",
     heroLabel: "CAREERS",
     sectionTag: "Why Join Us",
-    sectionTitle: "Why Work at Techwin Systems?",
+    sectionTitle: "Why Work at Techwen Systems?",
     sectionDescription: "We offer more than just a job – we offer a career path filled with growth opportunities, meaningful work, and a supportive environment.",
     cultureTitle: "Our Culture",
-    cultureDescription: "Step into a workplace defined by warmth, positivity, and collaboration. At Techwin Systems, we balance focused work with moments to connect whether it's over a cup of coffee, a team activity, or shared successes. Our open-door and inclusive culture encourages ideas, teamwork, and continuous growth.",
+    cultureDescription: "Step into a workplace defined by warmth, positivity, and collaboration. At Techwen Systems, we balance focused work with moments to connect whether it's over a cup of coffee, a team activity, or shared successes. Our open-door and inclusive culture encourages ideas, teamwork, and continuous growth.",
     principlesTitle: "Our Principles",
-    principlesDescription: "Techwin Systems is proud to be an equal employment opportunity employer. We provide fair and equal opportunities to all individuals, regardless of race, religion, gender, age, national origin, disability, marital status, or any other characteristic protected by law."
+    principlesDescription: "Techwen Systems is proud to be an equal employment opportunity employer. We provide fair and equal opportunities to all individuals, regardless of race, religion, gender, age, national origin, disability, marital status, or any other characteristic protected by law."
   };
 
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -66,7 +66,7 @@ const Careers = () => {
     submission.append("phone", formData.phone);
     submission.append("location", formData.location);
     submission.append("region", formData.region);
-    submission.append("source", "Techwin Systems careers form");
+    submission.append("source", "Techwen Systems careers form");
     submission.append("_subject", `New career application from ${formData.name}`);
     if (formData.resume) submission.append("resume", formData.resume);
 

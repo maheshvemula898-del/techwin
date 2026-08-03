@@ -24,9 +24,9 @@ const NotFound = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <SEO 
-        title="Page Not Found - 404 | Techwin Systems"
+        title="Page Not Found - 404 | Techwen Systems"
         description="The page you are looking for does not exist. Return to our homepage or browse our products and services."
-        keywords="404, page not found, Techwin Systems"
+        keywords="404, page not found, Techwen Systems"
         noindex={true}
       />
       <Navbar />

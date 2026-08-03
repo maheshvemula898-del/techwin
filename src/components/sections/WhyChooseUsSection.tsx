@@ -24,7 +24,7 @@ export const WhyChooseUsSection = () => {
             className="space-y-6 text-left"
           >
             <span className="text-[10px] font-bold text-[#1e6fd9] uppercase tracking-[0.22em] block">
-              Why Choose Techwin Systems
+              Why Choose Techwen Systems
             </span>
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-[#101820] leading-[1.02]">
               {whyChooseTitle}

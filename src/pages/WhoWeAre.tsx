@@ -11,12 +11,12 @@ const WhoWeAre = () => {
   const pageTexts = content.pageTexts;
   const textContent = pageTexts?.whoWeAre || {
     heroTitle: "Who We Are",
-    heroDescription: "Techwin Systems is a global IT services company helping enterprises modernize, secure, and operate their digital business.",
+    heroDescription: "Techwen Systems is a global IT services company helping enterprises modernize, secure, and operate their digital business.",
     heroLabel: "ABOUT US",
-    sectionTag: "About Techwin Systems",
+    sectionTag: "About Techwen Systems",
     storyTitle: "Our Mission & Vision",
     storyParagraphs: [
-      "Techwin Systems delivers enterprise technology services across DevOps, cybersecurity, cloud, software engineering, data and AI, enterprise applications, and managed operations.",
+      "Techwen Systems delivers enterprise technology services across DevOps, cybersecurity, cloud, software engineering, data and AI, enterprise applications, and managed operations.",
       "Our Mission: Help organizations innovate faster, operate securely, and create lasting value through technology.",
       "Our Vision: Become a trusted global technology partner for the world's most ambitious enterprises."
     ],
@@ -68,7 +68,7 @@ const WhoWeAre = () => {
               <div className="border border-neutral-300 bg-neutral-250 p-2 overflow-hidden shadow-sm rounded-none">
                 <img 
                   src="/techwin-architecture.webp" 
-                  alt="Techwin Systems global technology services" 
+                  alt="Techwen Systems global technology services"
                   className="w-full h-auto object-cover rounded-none"
                 />
               </div>

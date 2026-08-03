@@ -51,7 +51,7 @@ const DynamicService = () => {
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-[#1d1d1d] flex flex-col">
       <SEO 
-        title={`${cleanMarkdown(service.title)} | Enterprise IT Services | Techwin Systems`}
+        title={`${cleanMarkdown(service.title)} | Enterprise IT Services | Techwen Systems`}
         description={cleanMarkdown(service.description)}
       />
       <Navbar />

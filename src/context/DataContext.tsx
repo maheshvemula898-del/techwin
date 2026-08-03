@@ -230,10 +230,10 @@ export const defaultFallbackContent: WebsiteContent = {
   customPages: [],
   seoData: initialSeoData,
   branding: {
-    companyName: "Techwin Systems Pvt Limited",
-    brandName: "Techwin Systems",
+    companyName: "Techwen Systems Pvt Limited",
+    brandName: "Techwen Systems",
     domain: "techwensys.com",
-    twitterHandle: "Techwin Systems",
+    twitterHandle: "Techwen Systems",
     logoUrl: "",
     faviconUrl: "/techwen-favicon.png",
     previewImageUrl: "/hero-preview.png"

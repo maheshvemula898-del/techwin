@@ -32,7 +32,7 @@ const DynamicPage = () => {
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-[#1d1d1d] flex flex-col">
       <SEO 
-        title={`${page.title} | Techwin Systems`}
+        title={`${page.title} | Techwen Systems`}
         description={page.description}
       />
       <Navbar />

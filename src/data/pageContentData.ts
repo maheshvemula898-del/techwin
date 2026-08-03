@@ -467,7 +467,7 @@ export const initialPartnerBenefits: PartnerBenefitItem[] = [
     id: "pb-1",
     iconName: "Handshake",
     title: "Technology Alliance",
-    description: "Build joint cloud, cybersecurity, software, and enterprise transformation solutions with Techwin Systems.",
+    description: "Build joint cloud, cybersecurity, software, and enterprise transformation solutions with Techwen Systems.",
     color: "bg-blue-500",
     link: "/contact"
   },
@@ -563,20 +563,20 @@ export const initialPageTexts: {
     ctaDescription: "Can't find what you're looking for? Contact our team for personalized assistance."
   },
   careers: {
-    heroTitle: "Join Techwin Systems",
+    heroTitle: "Join Techwen Systems",
     heroDescription: "Join a global team engineering secure cloud platforms, digital products, intelligent data solutions, and resilient enterprise operations.",
     heroLabel: "CAREERS",
-    sectionTag: "Why Techwin Systems?",
-    sectionTitle: "Why Work at Techwin Systems?",
+    sectionTag: "Why Techwen Systems?",
+    sectionTitle: "Why Work at Techwen Systems?",
     sectionDescription: "Flexible Work Culture | High-Impact Clients | Career Growth",
     cultureTitle: "Open Opportunities",
     cultureDescription: "We welcome cloud engineers, cybersecurity specialists, software developers, data professionals, consultants, and technology leaders.",
     principlesTitle: "Learning & Culture",
-    principlesDescription: "At Techwin Systems, we foster a learning-driven culture where you can work on complex international accounts, grow your career path organically, and enjoy excellent work-life balance."
+    principlesDescription: "At Techwen Systems, we foster a learning-driven culture where you can work on complex international accounts, grow your career path organically, and enjoy excellent work-life balance."
   },
   partners: {
     heroTitle: "Partners",
-    heroDescription: "Join our partner network and grow your business with Techwin Systems.",
+    heroDescription: "Join our partner network and grow your business with Techwen Systems.",
     heroLabel: "PARTNER PROGRAM",
     ctaButtonText: "Become a Partner",
     sectionTag: "Partnership Opportunities",
@@ -585,12 +585,12 @@ export const initialPageTexts: {
   },
   whoWeAre: {
     heroTitle: "Who We Are",
-    heroDescription: "Techwin Systems is a global IT services company helping enterprises modernize, secure, and operate their digital business.",
+    heroDescription: "Techwen Systems is a global IT services company helping enterprises modernize, secure, and operate their digital business.",
     heroLabel: "ABOUT US",
-    sectionTag: "About Techwin Systems",
+    sectionTag: "About Techwen Systems",
     storyTitle: "Our Mission & Vision",
     storyParagraphs: [
-      "Techwin Systems delivers enterprise technology services across DevOps, cybersecurity, cloud, software engineering, data and AI, enterprise applications, and managed operations.",
+      "Techwen Systems delivers enterprise technology services across DevOps, cybersecurity, cloud, software engineering, data and AI, enterprise applications, and managed operations.",
       "Our Mission: Help organizations innovate faster, operate securely, and create lasting value through technology.",
       "Our Vision: Become a trusted global technology partner for the world's most ambitious enterprises."
     ],
@@ -601,12 +601,12 @@ export const initialPageTexts: {
   home: {
     heroLabel: "GLOBAL TECHNOLOGY SERVICES",
     heroTitle: "Engineering Secure Digital Enterprises",
-    heroDescription: "Techwin Systems Pvt Limited delivers DevOps, cybersecurity, cloud, software engineering, data and AI, and managed technology solutions for global enterprises.",
+    heroDescription: "Techwen Systems Pvt Limited delivers DevOps, cybersecurity, cloud, software engineering, data and AI, and managed technology solutions for global enterprises.",
     sectionTitle: "One global technology partner across cloud, security, applications, data, and operations.",
     whyChooseTitle: "Your Trusted Global Technology Partner",
     whyChooseDescription: "We combine engineering depth, security by design, automation, and global delivery to turn complex technology challenges into measurable outcomes.",
     ctaTitle: "Ready to transform your enterprise?",
-    ctaDescription: "Partner with Techwin Systems to modernize platforms, strengthen cyber resilience, and accelerate innovation.",
+    ctaDescription: "Partner with Techwen Systems to modernize platforms, strengthen cyber resilience, and accelerate innovation.",
     ctaButtonText: "Start Your Transformation"
   },
   productsPage: {
@@ -620,7 +620,7 @@ export const initialPageTexts: {
   contact: {
     heroLabel: "GET IN TOUCH",
     heroTitle: "Let's Build What Comes Next",
-    heroDescription: "Whether you are modernizing cloud platforms, strengthening cybersecurity, or building digital products, Techwin Systems is ready to deliver.",
+    heroDescription: "Whether you are modernizing cloud platforms, strengthening cybersecurity, or building digital products, Techwen Systems is ready to deliver.",
     sectionTitle: "Get Started Today",
     sectionDescription: "",
     ctaTitle: "Company Information",
@@ -628,7 +628,7 @@ export const initialPageTexts: {
   }
 };
 
-const CONTENT_STORAGE_KEY = "Techwin Systems_enterprise_it_content_v2";
+const CONTENT_STORAGE_KEY = "Techwen Systems_enterprise_it_content_v2";
 
 export const getWebsiteContent = (): WebsiteContent => {
   try {
@@ -650,7 +650,7 @@ export const getWebsiteContent = (): WebsiteContent => {
     let dirty = false;
 
     // Migrate legacy consultation text to the current version.
-    if (parsed.pageTexts?.contact?.sectionDescription === "Schedule a free consultation with our recruitment experts and discover how Techwin Systems can accelerate your hiring pipeline.") {
+    if (parsed.pageTexts?.contact?.sectionDescription === "Schedule a free consultation with our recruitment experts and discover how Techwen Systems can accelerate your hiring pipeline.") {
       parsed.pageTexts.contact.sectionDescription = "";
       dirty = true;
     }

@@ -33,28 +33,28 @@ const groups = [
 
 export const Footer = () => (
   <footer className="site-footer bg-white text-neutral-950">
-    <div className="mx-auto max-w-[1512px] px-5 py-16 lg:px-10 lg:py-20">
-      <div className="grid gap-12 border-b border-neutral-200 pb-16 lg:grid-cols-[1.5fr_2fr]">
+    <div className="mx-auto max-w-[1512px] px-5 py-8 lg:px-10 lg:py-20">
+      <div className="grid gap-6 border-b border-neutral-200 pb-8 lg:grid-cols-[1.5fr_2fr] lg:gap-12 lg:pb-16">
         <div>
-          <Link to="/" aria-label="Techwin Systems home" className="brand-logo-shell inline-flex">
-            <img src="/assets/techwen-systems-logo.jpeg" alt="Techwin Systems Private Limited" loading="lazy" decoding="async" className="brand-logo brand-logo-footer" />
+          <Link to="/" aria-label="Techwen Systems home" className="brand-logo-shell inline-flex">
+            <img src="/assets/techwen-systems-logo.jpeg" alt="Techwen Systems Private Limited" loading="lazy" decoding="async" className="brand-logo brand-logo-footer" />
           </Link>
-          <p className="mt-5 max-w-sm text-sm leading-6 text-neutral-600">
+          <p className="mt-3 max-w-sm text-sm leading-5 text-neutral-600 lg:mt-5 lg:leading-6">
             Engineering secure, resilient digital enterprises through technology expertise and accountable delivery.
           </p>
-          <a href="mailto:info@techwensys.com" className="footer-email mt-8 inline-flex items-center gap-2 px-5 py-3 text-sm font-semibold">
+          <a href="mailto:info@techwensys.com" className="footer-email mt-4 inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold lg:mt-8 lg:px-5 lg:py-3">
             info@techwensys.com <ArrowUpRight className="h-4 w-4" />
           </a>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {groups.map((group) => (
             <div key={group.title}>
               <h3 className="text-[10px] font-bold uppercase tracking-[0.18em] text-neutral-950">{group.title}</h3>
-              <ul className="mt-5 space-y-3">
+              <ul className="mt-3 space-y-2 lg:mt-5 lg:space-y-3">
                 {group.links.map(([label, href]) => (
                   <li key={`${label}-${href}`}>
-                    <Link to={href} className="text-sm text-neutral-600 transition-colors hover:text-red-700">{label}</Link>
+                    <Link to={href} className="text-xs text-neutral-600 transition-colors hover:text-red-700 sm:text-sm">{label}</Link>
                   </li>
                 ))}
               </ul>
@@ -63,9 +63,9 @@ export const Footer = () => (
         </div>
       </div>
 
-      <div className="flex flex-row items-center justify-between gap-4 overflow-x-auto whitespace-nowrap pt-7 text-[9px] text-neutral-500 sm:text-[11px]">
-        <p className="shrink-0">© 2026 Techwin Systems Pvt Limited. All rights reserved.</p>
-        <div className="flex shrink-0 items-center gap-3 sm:gap-5">
+      <div className="flex flex-col items-start gap-2 pt-4 text-[9px] text-neutral-500 sm:text-[11px] lg:gap-4 lg:pt-7">
+        <p>© 2026 Techwen Systems Pvt Limited. All rights reserved.</p>
+        <div className="flex items-center gap-3 whitespace-nowrap sm:gap-5">
           <Link to="/privacy">Privacy</Link>
           <Link to="/legal">Legal</Link>
           <Link to="/cookies">Cookies</Link>

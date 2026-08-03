@@ -58,7 +58,7 @@ const Contact = () => {
         country: formData.country,
         interest: formData.interest,
         message: formData.message,
-        source: "Techwin Systems contact form",
+        source: "Techwen Systems contact form",
         _subject: `New website enquiry from ${formData.name}`,
       });
       toast({
@@ -319,7 +319,7 @@ const Contact = () => {
                 <h3 className="text-sm font-semibold text-neutral-900">{addressTitle}</h3>
                 <div className="border-t border-neutral-100 pt-4 space-y-2">
                   <h4 className="text-xs font-semibold text-neutral-800">Registered Office</h4>
-                  <p className="text-xs text-neutral-900 font-bold">Techwin Systems Pvt Limited</p>
+                  <p className="text-xs text-neutral-900 font-bold">Techwen Systems Pvt Limited</p>
                   <address className="not-italic text-xs text-neutral-600 leading-relaxed space-y-1">
                     <span className="block">{addressDescription}</span>
                   </address>

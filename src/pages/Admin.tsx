@@ -143,10 +143,10 @@ export default function AdminPanel() {
         setFaviconUrl(content.branding.faviconUrl || "");
         setPreviewImageUrl(content.branding.previewImageUrl || "");
       } else {
-        setCompanyName("Techwin Systems Pvt Limited");
-        setBrandName("Techwin Systems");
+        setCompanyName("Techwen Systems Pvt Limited");
+        setBrandName("Techwen Systems");
         setDomain("techwensys.com");
-        setTwitterHandle("Techwin Systems");
+        setTwitterHandle("Techwen Systems");
         setFaviconUrl("/techwen-favicon.png");
         setPreviewImageUrl("/hero-preview.png");
       }
@@ -258,7 +258,7 @@ export default function AdminPanel() {
       const url = URL.createObjectURL(dataBlob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `Techwin Systems_content_backup_${new Date().toISOString().slice(0, 10)}.json`;
+      a.download = `Techwen Systems_content_backup_${new Date().toISOString().slice(0, 10)}.json`;
       a.click();
       toast.success("Database exported successfully!");
     } catch (err) {
@@ -759,7 +759,7 @@ export default function AdminPanel() {
             <div className="w-12 h-12 rounded-xl bg-sky-50 border border-sky-100 flex items-center justify-center mx-auto">
               <ShieldAlert className="w-6 h-6 text-sky-600" />
             </div>
-            <h1 className="text-2xl font-bold text-slate-900">Techwin Systems Console</h1>
+            <h1 className="text-2xl font-bold text-slate-900">Techwen Systems Console</h1>
             <p className="text-sm text-slate-500">Administrator access is restricted to the approved Google account.</p>
           </div>
 
@@ -816,7 +816,7 @@ export default function AdminPanel() {
   return (
     <div className="min-h-screen bg-[#f8fafc] text-slate-800 flex flex-col font-sans antialiased">
       <Helmet>
-        <title>Techwin Systems Console | Administrative Control</title>
+        <title>Techwen Systems Console | Administrative Control</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
@@ -830,7 +830,7 @@ export default function AdminPanel() {
             <div className="w-8 h-8 rounded-lg bg-sky-600 flex items-center justify-center text-white shadow-md shadow-sky-600/10">
               <Sliders className="w-4 h-4" />
             </div>
-            <span className="font-bold text-lg text-slate-900 tracking-tight">Techwin Systems</span>
+            <span className="font-bold text-lg text-slate-900 tracking-tight">Techwen Systems</span>
             <Badge className="bg-slate-100 text-slate-600 border border-slate-200 text-[9px] hover:bg-slate-100 px-1.5 py-0.5 rounded-md font-medium ml-1">CONSOLE</Badge>
           </div>
         </div>
@@ -1213,11 +1213,11 @@ export default function AdminPanel() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-1">
                       <label className="text-xs font-semibold text-slate-700">Company Legal Name</label>
-                      <Input value={companyName} onChange={(e) => setCompanyName(e.target.value)} className="bg-slate-50 border-slate-200 text-xs h-9 rounded-lg" placeholder="e.g. Techwin Systems" />
+                      <Input value={companyName} onChange={(e) => setCompanyName(e.target.value)} className="bg-slate-50 border-slate-200 text-xs h-9 rounded-lg" placeholder="e.g. Techwen Systems" />
                     </div>
                     <div className="space-y-1">
                       <label className="text-xs font-semibold text-slate-700">Brand Name</label>
-                      <Input value={brandName} onChange={(e) => setBrandName(e.target.value)} className="bg-slate-50 border-slate-200 text-xs h-9 rounded-lg" placeholder="e.g. Techwin Systems" />
+                      <Input value={brandName} onChange={(e) => setBrandName(e.target.value)} className="bg-slate-50 border-slate-200 text-xs h-9 rounded-lg" placeholder="e.g. Techwen Systems" />
                     </div>
                     <div className="space-y-1">
                       <label className="text-xs font-semibold text-slate-700">Canonical Domain Name</label>
@@ -1225,7 +1225,7 @@ export default function AdminPanel() {
                     </div>
                     <div className="space-y-1">
                       <label className="text-xs font-semibold text-slate-700">Twitter Handle</label>
-                      <Input value={twitterHandle} onChange={(e) => setTwitterHandle(e.target.value)} className="bg-slate-50 border-slate-200 text-xs h-9 rounded-lg" placeholder="e.g. Techwin Systems" />
+                      <Input value={twitterHandle} onChange={(e) => setTwitterHandle(e.target.value)} className="bg-slate-50 border-slate-200 text-xs h-9 rounded-lg" placeholder="e.g. Techwen Systems" />
                     </div>
                   </div>
                   <div className="space-y-1 mt-4">

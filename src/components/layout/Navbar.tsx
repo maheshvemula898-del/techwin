@@ -36,8 +36,8 @@ export const Navbar = () => {
   return (
     <header className="site-navbar fixed inset-x-0 top-0 z-50 border-b border-white/15 bg-[#061a3a]/95 text-white backdrop-blur-xl">
       <div className="mx-auto flex h-[72px] max-w-[1512px] items-center px-5 lg:px-10">
-        <Link to="/" aria-label="Techwin Systems home" className="brand-logo-shell mr-auto">
-          <img src="/assets/techwen-systems-logo.jpeg" alt="Techwin Systems Private Limited" fetchPriority="high" decoding="async" className="brand-logo brand-logo-header" />
+        <Link to="/" aria-label="Techwen Systems home" className="brand-logo-shell mr-auto">
+          <img src="/assets/techwen-systems-logo.jpeg" alt="Techwen Systems Private Limited" fetchPriority="high" decoding="async" className="brand-logo brand-logo-header" />
         </Link>
 
         <nav className="hidden items-center gap-7 xl:flex">

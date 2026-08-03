@@ -33,7 +33,7 @@ export const serviceDetailData: Record<string, ServiceDetail> = {
     overviewTitle: "Strengthen cyber resilience across identities, applications, cloud, data, and operations.",
     visualImage: "/services/cybersecurity-operations-real.webp",
     overview: [
-      "Techwin Systems helps organizations move from disconnected security tools to an integrated, risk-led security program. We prioritize the exposures that matter most, engineer controls into technology platforms, and improve readiness to detect, contain, and recover from attacks.",
+      "Techwen Systems helps organizations move from disconnected security tools to an integrated, risk-led security program. We prioritize the exposures that matter most, engineer controls into technology platforms, and improve readiness to detect, contain, and recover from attacks.",
       "Our cybersecurity services span strategy, architecture, zero trust, cloud and application security, vulnerability management, security operations, governance, and resilience testing. Programs are aligned to business criticality and measurable risk reduction.",
     ],
     capabilities: [
@@ -75,7 +75,7 @@ export const serviceDetailData: Record<string, ServiceDetail> = {
     overviewTitle: "Engineer digital products and enterprise applications built to evolve.",
     visualImage: "/services/software-engineering-real.webp",
     overview: [
-      "Techwin Systems designs and builds secure web, mobile, API, integration, and enterprise software. We combine product thinking, experience design, architecture, engineering, quality, DevSecOps, and production support within accountable multidisciplinary teams.",
+      "Techwen Systems designs and builds secure web, mobile, API, integration, and enterprise software. We combine product thinking, experience design, architecture, engineering, quality, DevSecOps, and production support within accountable multidisciplinary teams.",
       "We can create new products, modernize legacy applications incrementally, improve engineering quality, or establish reusable product platforms. Decisions are guided by customer value, maintainability, performance, security, and total cost of ownership.",
     ],
     capabilities: [
@@ -96,7 +96,7 @@ export const serviceDetailData: Record<string, ServiceDetail> = {
     overviewTitle: "Create trusted data foundations and turn intelligence into measurable decisions.",
     visualImage: "/services/data-ai-analytics-real.webp",
     overview: [
-      "Techwin Systems helps organizations connect fragmented data, improve trust, modernize analytics, and apply AI where it creates practical value. We address architecture, governance, engineering, operating model, adoption, and responsible use as one transformation agenda.",
+      "Techwen Systems helps organizations connect fragmented data, improve trust, modernize analytics, and apply AI where it creates practical value. We address architecture, governance, engineering, operating model, adoption, and responsible use as one transformation agenda.",
       "Our teams deliver cloud data platforms, lakehouse and warehouse modernization, real-time pipelines, business intelligence, machine learning, generative AI, MLOps, and data governance. Solutions are designed around decision workflows—not technology experimentation alone.",
     ],
     capabilities: [
@@ -118,7 +118,7 @@ export const serviceDetailData: Record<string, ServiceDetail> = {
     visualImage: "/services/managed-it-services-real.webp",
     overview: [
       "Our managed services combine 24/7 monitoring, service management, cloud and infrastructure operations, application support, security coordination, and continual improvement. We focus on service health and user outcomes rather than ticket volume alone.",
-      "Techwin Systems integrates with client teams through clear ownership, operational runbooks, service-level objectives, transparent reporting, and structured governance. Automation reduces repetitive work while specialists concentrate on prevention, resilience, and improvement.",
+      "Techwen Systems integrates with client teams through clear ownership, operational runbooks, service-level objectives, transparent reporting, and structured governance. Automation reduces repetitive work while specialists concentrate on prevention, resilience, and improvement.",
     ],
     capabilities: [
       { title: "Infrastructure and cloud operations", description: "Monitor, administer, patch, optimize, back up, and recover hybrid infrastructure and cloud platforms." },
@@ -159,7 +159,7 @@ export const serviceDetailData: Record<string, ServiceDetail> = {
     overviewTitle: "Create a secure digital workplace that helps people work effectively from anywhere.",
     visualImage: "/services/digital-workplace-real.webp",
     overview: [
-      "Techwin Systems modernizes workplace technology, connectivity, identity, endpoints, collaboration, and infrastructure around employee experience and security. We help reduce friction while maintaining consistent control across locations, devices, and working models.",
+      "Techwen Systems modernizes workplace technology, connectivity, identity, endpoints, collaboration, and infrastructure around employee experience and security. We help reduce friction while maintaining consistent control across locations, devices, and working models.",
       "Our services cover workplace strategy, Microsoft 365 and collaboration, endpoint engineering, identity, virtual desktop, networks, infrastructure, service experience, automation, and lifecycle management.",
     ],
     capabilities: [

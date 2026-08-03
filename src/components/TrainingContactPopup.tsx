@@ -74,7 +74,7 @@ export const TrainingContactPopup = ({ open, onOpenChange }: TrainingContactPopu
       await submitToFormspree({
         name,
         phone: `+91${phone}`,
-        source: "Techwin Systems training popup",
+        source: "Techwen Systems training popup",
         message: "Inquiry for corporate training workshop details.",
         _subject: `New training enquiry from ${name}`,
       });

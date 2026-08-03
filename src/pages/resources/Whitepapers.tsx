@@ -12,7 +12,7 @@ const whitepapers = [
     description: "A comprehensive guide to setting up and maintaining robust IT infrastructure for growing businesses.",
     category: "IT Support",
     date: "2024-01-15",
-    author: "Techwin Systems Team",
+    author: "Techwen Systems Team",
     downloadLink: "#",
   },
   {
@@ -20,7 +20,7 @@ const whitepapers = [
     description: "Learn how to successfully onboard remote software developers into your organization with proven strategies.",
     category: "Talent Sourcing",
     date: "2024-02-20",
-    author: "Techwin Systems Team",
+    author: "Techwen Systems Team",
     downloadLink: "#",
   },
   {
@@ -28,7 +28,7 @@ const whitepapers = [
     description: "Essential insights for migrating your business operations to the cloud safely and efficiently.",
     category: "IT Support",
     date: "2024-03-10",
-    author: "Techwin Systems Team",
+    author: "Techwen Systems Team",
     downloadLink: "#",
   },
   {
@@ -36,7 +36,7 @@ const whitepapers = [
     description: "Understand the return on investment and best practices for custom software development projects.",
     category: "Software Solutions",
     date: "2024-04-05",
-    author: "Techwin Systems Team",
+    author: "Techwen Systems Team",
     downloadLink: "#",
   },
   {
@@ -44,7 +44,7 @@ const whitepapers = [
     description: "A detailed overview of effective developer retention and motivation programs for corporate teams.",
     category: "Talent Sourcing",
     date: "2024-05-12",
-    author: "Techwin Systems Team",
+    author: "Techwen Systems Team",
     downloadLink: "#",
   },
   {
@@ -52,7 +52,7 @@ const whitepapers = [
     description: "Explore the latest trends and strategies in mobile application development.",
     category: "Software Solutions",
     date: "2024-06-18",
-    author: "Techwin Systems Team",
+    author: "Techwen Systems Team",
     downloadLink: "#",
   },
 ];
