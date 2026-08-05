@@ -9,7 +9,7 @@ export const CTASection = () => {
   const homeText = content.pageTexts?.home || {};
   
   const ctaTitle = homeText.ctaTitle || "Ready to scale your tech team?";
-  const ctaDescription = homeText.ctaDescription || "Connect with Techwin Systems to modernize platforms, strengthen cyber resilience, and accelerate enterprise innovation.";
+  const ctaDescription = homeText.ctaDescription || "Connect with Techwen Systems to modernize platforms, strengthen cyber resilience, and accelerate enterprise innovation.";
   const ctaButtonText = homeText.ctaButtonText || "Contact Us Now";
 
   return (

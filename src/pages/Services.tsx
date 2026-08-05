@@ -113,7 +113,7 @@ const Services = () => {
           <div>
             <h2 className="text-3xl font-medium leading-tight tracking-[-.04em] text-neutral-950 md:text-4xl">Strategy, engineering, security, and operations—connected end to end.</h2>
             <div className="mt-6 grid gap-5 text-[15px] leading-8 text-neutral-600">
-              <p>Techwin Systems helps technology leaders simplify complex estates, strengthen resilience, and accelerate delivery. Our specialists work across the full lifecycle: assessment and roadmap, architecture and implementation, migration and modernization, then continuous improvement through managed services.</p>
+              <p>Techwen Systems helps technology leaders simplify complex estates, strengthen resilience, and accelerate delivery. Our specialists work across the full lifecycle: assessment and roadmap, architecture and implementation, migration and modernization, then continuous improvement through managed services.</p>
               <p>Instead of treating cloud, cybersecurity, software, data, enterprise applications, and operations as separate initiatives, we connect them through shared architecture, governance, automation, and outcome measurement. This creates transformation programs that are easier to manage and more valuable to the business.</p>
             </div>
           </div>
@@ -315,7 +315,7 @@ const Services = () => {
             <h2 className="mt-4 max-w-3xl text-3xl font-medium leading-tight tracking-[-.04em] text-neutral-950 md:text-4xl">Build a secure, modern technology foundation for what comes next.</h2>
             <p className="mt-4 max-w-2xl text-sm leading-7 text-neutral-600">Tell us where transformation is stalled, where risk is growing, or where technology needs to create more value. We will help define a practical next step.</p>
           </div>
-          <Link to="/contact" className="inline-flex shrink-0 items-center justify-center gap-3 bg-[#061a3a] px-7 py-4 text-sm font-semibold text-white">Contact Techwin Systems <ArrowRight className="h-4 w-4" /></Link>
+          <Link to="/contact" className="inline-flex shrink-0 items-center justify-center gap-3 bg-[#061a3a] px-7 py-4 text-sm font-semibold text-white">Contact Techwen Systems <ArrowRight className="h-4 w-4" /></Link>
         </div>
       </section>
 

@@ -33,7 +33,7 @@ const Privacy = () => {
 
             <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">1. Introduction</h2>
             <p className="text-muted-foreground mb-6">
-              Techwin Systems ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+              Techwen Systems ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
             </p>
 
             <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">2. Information We Collect</h2>
@@ -94,7 +94,7 @@ const Privacy = () => {
               <br /><br />
               <strong>Email:</strong> info@techwensys.com<br />
               <strong>Phone:</strong> +91 98669 78808, +91 94944 32286<br />
-              <strong>Address:</strong> Techwin Systems Pvt Limited, 130, 4th Floor, Sant Nagar, East of Kailash, New Delhi - 110065
+              <strong>Address:</strong> Techwen Systems Pvt Limited, 130, 4th Floor, Sant Nagar, East of Kailash, New Delhi - 110065
             </p>
           </motion.div>
         </div>

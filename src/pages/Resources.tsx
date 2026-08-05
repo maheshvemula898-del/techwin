@@ -25,7 +25,7 @@ const Resources = () => {
       <PageHero
         title="Insights & Ideas"
         description="Practical perspectives for technology leaders navigating security, cloud, AI, engineering, and enterprise transformation."
-        label="TECHWIN BLOG"
+        label="TECHWEN BLOG"
         breadcrumbs={[{ label: "Insights" }]}
         backgroundImage="/techwin-network-hero.webp"
       />

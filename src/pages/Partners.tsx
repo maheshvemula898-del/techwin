@@ -15,7 +15,7 @@ const Partners = () => {
   const pageTexts = content.pageTexts;
   const textContent = pageTexts?.partners || {
     heroTitle: "Partners",
-    heroDescription: "Join our partner network and grow your business with Techwin Systems.",
+    heroDescription: "Join our partner network and grow your business with Techwen Systems.",
     heroLabel: "PARTNER PROGRAM",
     ctaButtonText: "Become a Partner",
     sectionTag: "Partnership Opportunities",

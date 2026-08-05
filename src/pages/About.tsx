@@ -30,12 +30,12 @@ const About = () => {
   const pageTexts = content.pageTexts;
   const textContent = pageTexts?.whoWeAre || {
     heroTitle: "Who We Are",
-    heroDescription: "Techwin Systems is a global enterprise technology company helping businesses modernize, secure, and grow.",
+    heroDescription: "Techwen Systems is a global enterprise technology company helping businesses modernize, secure, and grow.",
     heroLabel: "ABOUT US",
     sectionTag: "Our Journey",
     storyTitle: "Building the Future of Enterprise Solutions",
     storyParagraphs: [
-      "At Techwin Systems, we deliver DevOps, cybersecurity, cloud, software engineering, data and AI, enterprise applications, and managed IT services that drive business transformation.",
+      "At Techwen Systems, we deliver DevOps, cybersecurity, cloud, software engineering, data and AI, enterprise applications, and managed IT services that drive business transformation.",
       "We believe in building long-term partnerships with our clients, understanding their unique challenges, and delivering tailored solutions that create lasting value."
     ],
     sectionTitle: "Our Values",
@@ -84,7 +84,7 @@ const About = () => {
             <div className="relative">
               <div className="border border-neutral-300 bg-white p-8 flex items-center justify-center shadow-sm rounded-none aspect-[4/3]">
                 <div className="text-center space-y-2">
-                  <div className="text-2xl font-bold tracking-tight text-[#1e6fd9] uppercase">{textContent.heroTitle || "Techwin Systems"}</div>
+                  <div className="text-2xl font-bold tracking-tight text-[#1e6fd9] uppercase">{textContent.heroTitle || "Techwen Systems"}</div>
                   <div className="text-[10px] text-neutral-500 uppercase tracking-widest">Enterprise Solutions</div>
                 </div>
               </div>

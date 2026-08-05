@@ -1,10 +1,10 @@
 {
-  "name": "Techwin Systems - Enterprise IT Services",
-  "short_name": "Techwin Systems",
+  "name": "Techwen Systems - Enterprise IT Services",
+  "short_name": "Techwen Systems",
   "description": "Complete Enterprise IT Services, DevOps & Cybersecurity",
   "icons": [
     {
-      "src": "/favicon.png",
+      "src": "/techwen-favicon.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

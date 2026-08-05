@@ -20,9 +20,9 @@ export const useSEO = () => {
     .replace(/\b\w/g, (letter) => letter.toUpperCase()) || "Technology Services";
 
   return {
-    title: `${pageName} | Techwin Systems`,
-    description: `Explore ${pageName.toLowerCase()} capabilities, insights, and enterprise technology guidance from Techwin Systems.`,
-    keywords: `${pageName.toLowerCase()}, enterprise technology, Techwin Systems, Techwin Systems Pvt Limited, techwensys.com, info@techwensys.com`,
+    title: `${pageName} | Techwen Systems`,
+    description: `Explore ${pageName.toLowerCase()} capabilities, insights, and enterprise technology guidance from Techwen Systems.`,
+    keywords: `${pageName.toLowerCase()}, enterprise technology, Techwen Systems, Techwen Systems Pvt Limited, techwensys.com, info@techwensys.com`,
     canonical: `https://techwensys.com${pathname === "/" ? "/" : pathname.replace(/\/$/, "")}`,
   };
 };

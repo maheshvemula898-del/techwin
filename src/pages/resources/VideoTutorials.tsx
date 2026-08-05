@@ -10,7 +10,7 @@ const tutorialCategories = [
   {
     title: "Getting Started",
     videos: [
-      { title: "Introduction to Techwin Systems Services", duration: "5:23", views: "1.2K", thumbnail: "ðŸŽ¥" },
+      { title: "Introduction to Techwen Systems Services", duration: "5:23", views: "1.2K", thumbnail: "ðŸŽ¥" },
       { title: "Setting Up Your Account", duration: "8:15", views: "890", thumbnail: "ðŸŽ¥" },
       { title: "Navigating the Platform", duration: "6:42", views: "1.5K", thumbnail: "ðŸŽ¥" },
     ],

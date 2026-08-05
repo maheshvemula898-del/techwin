@@ -25,12 +25,12 @@ export const SEO = ({
   const { content } = useData();
 
   // Branding configuration resolving with fallback to defaults
-  const companyName = content?.branding?.companyName || "Techwin Systems Pvt Limited";
-  const brandName = content?.branding?.brandName || "Techwin Systems";
+  const companyName = content?.branding?.companyName || "Techwen Systems Pvt Limited";
+  const brandName = content?.branding?.brandName || "Techwen Systems";
   const domain = content?.branding?.domain || "techwensys.com";
   const rawTwitterHandle = (content?.branding?.twitterHandle || "").replace(/^@/, "").trim();
   const twitterHandle = /^[A-Za-z0-9_]{1,15}$/.test(rawTwitterHandle) ? rawTwitterHandle : null;
-  const faviconUrl = content?.branding?.faviconUrl || "/favicon.png";
+  const faviconUrl = content?.branding?.faviconUrl || "/techwen-favicon.png";
   const previewImageUrl = content?.branding?.previewImageUrl || "/hero-preview.png";
 
   const imageSource = ogImage || previewImageUrl;
@@ -46,16 +46,16 @@ export const SEO = ({
   const rawKeywords = keywords || "";
 
   const finalTitle = rawTitle
-    .replace(/Techwin Systems/gi, companyName)
-    .replace(/Techwin Systems/gi, brandName);
+    .replace(/Techw(?:in|en) Systems Pvt Limited/gi, companyName)
+    .replace(/Techwen Systems/gi, brandName);
 
   const finalDesc = rawDesc
-    .replace(/Techwin Systems/gi, companyName)
-    .replace(/Techwin Systems/gi, brandName);
+    .replace(/Techw(?:in|en) Systems Pvt Limited/gi, companyName)
+    .replace(/Techwen Systems/gi, brandName);
 
   const pageKeywords = rawKeywords
-    .replace(/Techwin Systems/gi, companyName)
-    .replace(/Techwin Systems/gi, brandName);
+    .replace(/Techw(?:in|en) Systems Pvt Limited/gi, companyName)
+    .replace(/Techwen Systems/gi, brandName);
   const domainKeywords = [domain, `www.${domain}`, `info@${domain}`, brandName, companyName];
   const finalKeywords = Array.from(
     new Set(

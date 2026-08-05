@@ -3,12 +3,16 @@
   "private": true,
   "version": "0.0.0",
   "packageManager": "npm@11.6.2",
+  "engines": {
+    "node": "22.x"
+  },
   "type": "module",
   "scripts": {
     "dev:server": "node server/index.js",
     "dev:client": "vite",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "build": "vite build",
+    "typecheck": "tsc --noEmit -p tsconfig.app.json",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "test:security": "node --test server/security.test.js",

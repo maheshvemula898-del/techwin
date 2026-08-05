@@ -221,7 +221,7 @@
       "id": "pb-1",
       "iconName": "Handshake",
       "title": "Technology Alliance",
-      "description": "Build joint cloud, cybersecurity, software, and enterprise transformation solutions with Techwin Systems.",
+      "description": "Build joint cloud, cybersecurity, software, and enterprise transformation solutions with Techwen Systems.",
       "color": "bg-blue-500",
       "link": "/contact"
     },
@@ -419,22 +419,22 @@
     "home": {
       "heroLabel": "GLOBAL TECHNOLOGY SERVICES",
       "heroTitle": "Engineering Secure Digital Enterprises",
-      "heroDescription": "Techwin Systems Pvt Limited delivers DevOps, cybersecurity, cloud, software engineering, data and AI, and managed technology solutions for global enterprises.",
+      "heroDescription": "Techwen Systems Pvt Limited delivers DevOps, cybersecurity, cloud, software engineering, data and AI, and managed technology solutions for global enterprises.",
       "sectionTitle": "One global technology partner across cloud, security, applications, data, and operations.",
       "whyChooseTitle": "Your Trusted Global Technology Partner",
       "whyChooseDescription": "We combine engineering depth, security by design, automation, and global delivery to turn complex technology challenges into measurable outcomes.",
       "ctaTitle": "Ready to transform your enterprise?",
-      "ctaDescription": "Partner with Techwin Systems to modernize platforms, strengthen cyber resilience, and accelerate innovation.",
+      "ctaDescription": "Partner with Techwen Systems to modernize platforms, strengthen cyber resilience, and accelerate innovation.",
       "ctaButtonText": "Start Your Transformation"
     },
     "whoWeAre": {
       "heroTitle": "Who We Are",
-      "heroDescription": "Techwin Systems is a global IT services company helping enterprises modernize, secure, and operate their digital business.",
+      "heroDescription": "Techwen Systems is a global IT services company helping enterprises modernize, secure, and operate their digital business.",
       "heroLabel": "ABOUT US",
-      "sectionTag": "About Techwin Systems",
+      "sectionTag": "About Techwen Systems",
       "storyTitle": "Our Mission & Vision",
       "storyParagraphs": [
-        "Techwin Systems delivers enterprise technology services across DevOps, cybersecurity, cloud, software engineering, data and AI, enterprise applications, and managed operations.",
+        "Techwen Systems delivers enterprise technology services across DevOps, cybersecurity, cloud, software engineering, data and AI, enterprise applications, and managed operations.",
         "Our Mission: Help organizations innovate faster, operate securely, and create lasting value through technology.",
         "Our Vision: Become a trusted global technology partner for the world’s most ambitious enterprises."
       ],
@@ -479,23 +479,23 @@
       "sectionTitle": "Three Niche Sectors. One Comprehensive Talent Pool."
     },
     "careers": {
-      "heroTitle": "Join Techwin Systems",
+      "heroTitle": "Join Techwen Systems",
       "heroDescription": "Join a global team engineering secure cloud platforms, digital products, intelligent data solutions, and resilient enterprise operations.",
       "heroLabel": "CAREERS",
-      "sectionTag": "Why Techwin Systems?",
-      "sectionTitle": "Why Work at Techwin Systems?",
+      "sectionTag": "Why Techwen Systems?",
+      "sectionTitle": "Why Work at Techwen Systems?",
       "sectionDescription": "Flexible Work Culture | High-Impact Clients | Career Growth",
       "cultureTitle": "Open Opportunities",
       "cultureDescription": "We welcome cloud engineers, cybersecurity specialists, software developers, data professionals, consultants, and technology leaders.",
       "principlesTitle": "Learning & Culture",
-      "principlesDescription": "At Techwin Systems, we foster a learning-driven culture where you can work on complex international accounts, grow your career path organically, and enjoy excellent work-life balance."
+      "principlesDescription": "At Techwen Systems, we foster a learning-driven culture where you can work on complex international accounts, grow your career path organically, and enjoy excellent work-life balance."
     },
     "contact": {
       "heroLabel": "GET IN TOUCH",
       "heroTitle": "Let's Scale Your Tech Organization Together",
-      "heroDescription": "Whether you are looking for contract software engineers, permanent team members, or specialized technical vetting, Techwin Systems is ready to deliver.",
+      "heroDescription": "Whether you are looking for contract software engineers, permanent team members, or specialized technical vetting, Techwen Systems is ready to deliver.",
       "sectionTitle": "Get Started Today",
-      "sectionDescription": "Schedule a free consultation with our recruitment experts and discover how Techwin Systems can accelerate your hiring pipeline.",
+      "sectionDescription": "Schedule a free consultation with our recruitment experts and discover how Techwen Systems can accelerate your hiring pipeline.",
       "ctaTitle": "Contact Information",
       "ctaDescription": "8 The Green, Suite B, Dover, DE 19901"
     },
@@ -511,13 +511,13 @@
   "customPages": [],
   "seoData": {
     "/": {
-      "title": "Techwin Systems – IT Recruiting & Tech Staffing Solutions Agency",
-      "description": "Techwin Systems provides premier IT recruiting, contract staffing, direct hire, and dedicated software team solutions. Expert technical vetting for software engineers, DevOps, data science, and tech leadership.",
-      "keywords": "Techwin Systems, Techwin Systems, IT recruiting, tech staffing, contract staffing, direct hire, remote software engineers, developer recruitment, tech headhunters, software developer hiring, engineering recruiting, best of in the industry",
+      "title": "Techwen Systems – IT Recruiting & Tech Staffing Solutions Agency",
+      "description": "Techwen Systems provides premier IT recruiting, contract staffing, direct hire, and dedicated software team solutions. Expert technical vetting for software engineers, DevOps, data science, and tech leadership.",
+      "keywords": "Techwen Systems, Techwen Systems, IT recruiting, tech staffing, contract staffing, direct hire, remote software engineers, developer recruitment, tech headhunters, software developer hiring, engineering recruiting, best of in the industry",
       "canonical": "https://techwensys.com"
     },
     "/products": {
-      "title": "IT Staffing Solutions & Hiring Models – Techwin Systems",
+      "title": "IT Staffing Solutions & Hiring Models – Techwen Systems",
       "description": "Explore flexible IT hiring models including contract staffing, direct placement, and dedicated development teams. Scale your tech organizations with vetted software developers and architects.",
       "keywords": "IT staffing models, tech recruiting products, contract staffing solutions, permanent placement, direct hire tech, dedicated dev teams, tech talent pools, software developer staffing",
       "canonical": "https://techwensys.com/products"
@@ -529,31 +529,31 @@
       "canonical": "https://techwensys.com/products/contract-staffing"
     },
     "/products/direct-hire": {
-      "title": "Direct Hire & Permanent Placement Tech Recruiting – Techwin Systems",
+      "title": "Direct Hire & Permanent Placement Tech Recruiting – Techwen Systems",
       "description": "Secure the top 5% of technical professionals for full-time employee positions. In-depth technical screening, soft skills evaluation, and replacement guarantee.",
       "keywords": "direct hire tech, permanent placement tech, tech recruitment permanent, software engineer recruiting permanent, hire full-time developers",
       "canonical": "https://techwensys.com/products/direct-hire"
     },
     "/products/executive-search": {
-      "title": "Executive Tech Search & Headhunting – Techwin Systems Leadership Recruiting",
+      "title": "Executive Tech Search & Headhunting – Techwen Systems Leadership Recruiting",
       "description": "Retained executive search services for tech companies. Sourcing and vetting CTOs, VPs of Engineering, Directors of IT, and Principal Architects.",
       "keywords": "executive tech search, tech headhunting, CTO recruitment, VP Engineering recruiting, IT director headhunters, technical leadership recruitment",
       "canonical": "https://techwensys.com/products/executive-search"
     },
     "/services": {
-      "title": "IT Staffing & Tech Recruitment Services – Techwin Systems Solutions",
+      "title": "IT Staffing & Tech Recruitment Services – Techwen Systems Solutions",
       "description": "Comprehensive tech staffing services: contract staffing, direct hire, executive search, RPO, and dedicated development teams. Scale your tech teams with speed and precision.",
       "keywords": "tech staffing services, IT recruitment services, hiring developers, RPO services, executive search IT, developer sourcing, contract-to-hire tech",
       "canonical": "https://techwensys.com/services"
     },
     "/solutions": {
-      "title": "IT Staffing & Tech Recruitment Services – Techwin Systems Solutions",
+      "title": "IT Staffing & Tech Recruitment Services – Techwen Systems Solutions",
       "description": "Comprehensive tech staffing services: contract staffing, direct hire, executive search, RPO, and dedicated development teams. Scale your tech teams with speed and precision.",
       "keywords": "tech staffing services, IT recruitment services, hiring developers, RPO services, executive search IT, developer sourcing, contract-to-hire tech",
       "canonical": "https://techwensys.com/services"
     },
     "/industries": {
-      "title": "Tech Sourcing & Recruitment by Industry Vertical – Techwin Systems",
+      "title": "Tech Sourcing & Recruitment by Industry Vertical – Techwen Systems",
       "description": "Specialized tech recruiting vertical solutions for SaaS & Software Development, Fintech & Blockchain, and Healthcare & Biotech IT. Domained-focused recruiters.",
       "keywords": "industry tech recruiting, SaaS recruiting, fintech developer sourcing, healthtech software developers, domain-specific recruiting, compliance tech talent",
       "canonical": "https://techwensys.com/industries"
@@ -577,7 +577,7 @@
       "canonical": "https://techwensys.com/industries/healthcare-biotech"
     },
     "/resources": {
-      "title": "IT Recruitment & Sourcing Resources – Techwin Systems Hub",
+      "title": "IT Recruitment & Sourcing Resources – Techwen Systems Hub",
       "description": "Access guides, documentation, salary reports, hiring tips, and FAQ for technical recruitment and staffing practices.",
       "keywords": "tech hiring resources, staffing guide, hiring software developers, developer onboarding tips, developer salary surveys, recruiting FAQ",
       "canonical": "https://techwensys.com/resources"
@@ -589,8 +589,8 @@
       "canonical": "https://techwensys.com/resources/faq"
     },
     "/resources/employees": {
-      "title": "Talent Team & Sourcing Specialists – Techwin Systems",
-      "description": "Meet our dedicated technical recruiters, sourcers, account managers, and domain vetting experts at Techwin Systems.",
+      "title": "Talent Team & Sourcing Specialists – Techwen Systems",
+      "description": "Meet our dedicated technical recruiters, sourcers, account managers, and domain vetting experts at Techwen Systems.",
       "keywords": "tech recruiters team, sourcing team, technical vetters, recruiting experts, talent acquisition team",
       "canonical": "https://techwensys.com/resources/employees"
     },
@@ -607,73 +607,73 @@
       "canonical": "https://techwensys.com/resources/capital"
     },
     "/resources/placements": {
-      "title": "Developer Placements & Success Records – Techwin Systems",
+      "title": "Developer Placements & Success Records – Techwen Systems",
       "description": "Read our success metrics for software developers placed in top enterprises. 98% retention rates and fast onboarding times.",
       "keywords": "developer placement success, candidate placement track record, tech hire results",
       "canonical": "https://techwensys.com/resources/placements"
     },
     "/partners": {
-      "title": "Talent & Staffing Agency Partner Program – Techwin Systems",
-      "description": "Partner with Techwin Systems to extend candidate delivery, collaborate on high-niche technical searches, and utilize shared developer pools.",
+      "title": "Talent & Staffing Agency Partner Program – Techwen Systems",
+      "description": "Partner with Techwen Systems to extend candidate delivery, collaborate on high-niche technical searches, and utilize shared developer pools.",
       "keywords": "staffing agency partnership, recruiter network, shared talent pool, developer sourcing partner",
       "canonical": "https://techwensys.com/partners"
     },
     "/about": {
-      "title": "About Techwin Systems – IT Staffing Agency",
+      "title": "About Techwen Systems – IT Staffing Agency",
       "description": "Discover our story, mission, and dedication to bridging the global engineering gap with vetted IT staffing and direct hire solutions.",
-      "keywords": "about Techwin Systems, IT staffing agency story, technical recruiters about, hiring agency mission",
+      "keywords": "about Techwen Systems, IT staffing agency story, technical recruiters about, hiring agency mission",
       "canonical": "https://techwensys.com/about"
     },
     "/who-we-are": {
       "title": "Who We Are – Technical Sourcing Specialists",
       "description": "Meet our team of tech recruiters and developers committed to vetting, hiring, and onboarding top software engineers for our clients.",
-      "keywords": "Who we are Techwin Systems, technical sourcing team, software recruitment team",
+      "keywords": "Who we are Techwen Systems, technical sourcing team, software recruitment team",
       "canonical": "https://techwensys.com/who-we-are"
     },
     "/contact": {
-      "title": "Contact Tech Recruiting Specialists – Techwin Systems Staffing",
-      "description": "Contact Techwin Systems to discuss your software developer sourcing, temporary contractor payroll, or executive recruitment needs.",
+      "title": "Contact Tech Recruiting Specialists – Techwen Systems Staffing",
+      "description": "Contact Techwen Systems to discuss your software developer sourcing, temporary contractor payroll, or executive recruitment needs.",
       "keywords": "contact tech recruiters, hire developers inquiry, staffing agency contact, tech staffing phone",
       "canonical": "https://techwensys.com/contact"
     },
     "/careers": {
-      "title": "Careers at Techwin Systems – Join Our Tech Staffing Team",
+      "title": "Careers at Techwen Systems – Join Our Tech Staffing Team",
       "description": "Explore career opportunities inside our agency. Sourcing roles, Technical Recruiter positions, and Account Executive openings.",
       "keywords": "recruiting agency careers, hire recruiter jobs, tech recruiter jobs, staffing agency employment",
       "canonical": "https://techwensys.com/careers"
     },
     "/privacy": {
-      "title": "Privacy Policy – Techwin Systems",
-      "description": "Read Techwin Systems privacy policy to understand how we collect, use, and protect your personal information and data.",
-      "keywords": "privacy policy, Techwin Systems privacy, data protection, privacy statement",
+      "title": "Privacy Policy – Techwen Systems",
+      "description": "Read Techwen Systems privacy policy to understand how we collect, use, and protect your personal information and data.",
+      "keywords": "privacy policy, Techwen Systems privacy, data protection, privacy statement",
       "canonical": "https://techwensys.com/privacy"
     },
     "/terms": {
-      "title": "Terms of Service – Techwin Systems",
-      "description": "Review Techwin Systems terms of service and conditions for using our website and services.",
-      "keywords": "terms of service, terms and conditions, Techwin Systems terms, service terms",
+      "title": "Terms of Service – Techwen Systems",
+      "description": "Review Techwen Systems terms of service and conditions for using our website and services.",
+      "keywords": "terms of service, terms and conditions, Techwen Systems terms, service terms",
       "canonical": "https://techwensys.com/terms"
     },
     "/legal": {
-      "title": "Legal Information – Techwin Systems",
-      "description": "Legal information, policies, and terms for Techwin Systems website and services.",
-      "keywords": "legal information, legal policies, Techwin Systems legal, legal terms",
+      "title": "Legal Information – Techwen Systems",
+      "description": "Legal information, policies, and terms for Techwen Systems website and services.",
+      "keywords": "legal information, legal policies, Techwen Systems legal, legal terms",
       "canonical": "https://techwensys.com/legal"
     },
     "/cookies": {
-      "title": "Cookie Policy – Techwin Systems",
-      "description": "Learn about how Techwin Systems uses cookies on our website and how to manage your cookie preferences.",
-      "keywords": "cookie policy, cookies, cookie management, Techwin Systems cookies",
+      "title": "Cookie Policy – Techwen Systems",
+      "description": "Learn about how Techwen Systems uses cookies on our website and how to manage your cookie preferences.",
+      "keywords": "cookie policy, cookies, cookie management, Techwen Systems cookies",
       "canonical": "https://techwensys.com/cookies"
     }
   },
   "branding": {
-    "companyName": "Techwin Systems",
-    "brandName": "Techwin Systems",
+    "companyName": "Techwen Systems",
+    "brandName": "Techwen Systems",
     "domain": "techwensys.com",
-    "twitterHandle": "Techwin Systems",
+    "twitterHandle": "Techwen Systems",
     "logoUrl": "",
-    "faviconUrl": "/favicon.png",
+    "faviconUrl": "/techwen-favicon.png",
     "previewImageUrl": "/hero-preview.png"
   }
 }

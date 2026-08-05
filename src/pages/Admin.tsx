@@ -66,7 +66,8 @@ import { Link } from "@/lib/router";
 import { Helmet } from "react-helmet-async";
 import { useData, defaultFallbackContent } from "@/context/DataContext";
 import { ADMIN_EMAIL, useAuth } from "@/context/AuthContext";
-import { getAdminApiHeaders, getAdminApiToken, setAdminApiToken } from "@/lib/adminApi";
+import { db, isFirebaseConfigured } from "@/lib/firebase";
+import { addDoc, collection, deleteDoc, doc, getDocs, orderBy, query, updateDoc } from "firebase/firestore";
 import {
   WebsiteContent,
   ServiceItem,
@@ -117,15 +118,13 @@ export default function AdminPanel() {
   const { content, updateContent } = useData();
   
   // Base State
-  const [leads, setLeads] = useState<Lead[]>(initialLeads);
+  const [leads, setLeads] = useState<Lead[]>(isFirebaseConfigured ? [] : initialLeads);
   const [seoList, setSeoList] = useState(initialSeoData);
   const [webContent, setWebContent] = useState<WebsiteContent>(content || defaultFallbackContent);
   const [searchQuery, setSearchQuery] = useState("");
   const [leadSearchQuery, setLeadSearchQuery] = useState("");
   const [leadFilter, setLeadFilter] = useState<string>("All");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [apiToken, setApiToken] = useState(getAdminApiToken);
-  const [apiTokenDraft, setApiTokenDraft] = useState(getAdminApiToken);
 
   // Tab Navigation Binding State
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -144,11 +143,11 @@ export default function AdminPanel() {
         setFaviconUrl(content.branding.faviconUrl || "");
         setPreviewImageUrl(content.branding.previewImageUrl || "");
       } else {
-        setCompanyName("Techwin Systems Pvt Limited");
-        setBrandName("Techwin Systems");
+        setCompanyName("Techwen Systems Pvt Limited");
+        setBrandName("Techwen Systems");
         setDomain("techwensys.com");
-        setTwitterHandle("Techwin Systems");
-        setFaviconUrl("/favicon.png");
+        setTwitterHandle("Techwen Systems");
+        setFaviconUrl("/techwen-favicon.png");
         setPreviewImageUrl("/hero-preview.png");
       }
     }
@@ -157,18 +156,16 @@ export default function AdminPanel() {
   // Fetch Leads from Database
   useEffect(() => {
     const fetchLeads = async () => {
+      if (!db || !user) return;
       try {
-        const res = await fetch("/api/leads", { headers: getAdminApiHeaders() });
-        if (res.ok) {
-          const data = await res.json();
-          setLeads(data);
-        }
+        const snapshot = await getDocs(query(collection(db, "leads"), orderBy("date", "desc")));
+        setLeads(snapshot.docs.map((leadDoc) => ({ id: leadDoc.id, ...leadDoc.data() } as Lead)));
       } catch (err) {
-        console.warn("Express backend unavailable, running with fallback mock leads");
+        console.warn("Unable to load Firestore leads:", err);
       }
     };
     fetchLeads();
-  }, [apiToken]);
+  }, [user]);
 
   // System Config States
   const [companyName, setCompanyName] = useState("");
@@ -261,7 +258,7 @@ export default function AdminPanel() {
       const url = URL.createObjectURL(dataBlob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `Techwin Systems_content_backup_${new Date().toISOString().slice(0, 10)}.json`;
+      a.download = `Techwen Systems_content_backup_${new Date().toISOString().slice(0, 10)}.json`;
       a.click();
       toast.success("Database exported successfully!");
     } catch (err) {
@@ -369,26 +366,21 @@ export default function AdminPanel() {
       message: newLeadMessage
     };
 
+    const leadData = {
+      ...item,
+      status: "New" as const,
+      date: new Date().toISOString().replace('T', ' ').substring(0, 16)
+    };
+
     try {
-      const res = await fetch("/api/leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(item)
-      });
-      if (res.ok) {
-        const data = await res.json();
-        setLeads([data.lead, ...leads]);
-        toast.success("Simulated lead saved!");
-      }
-    } catch {
-      const mockLead: Lead = {
-        id: `mock-${Date.now()}`,
-        ...item,
-        status: "New",
-        date: new Date().toISOString().replace('T', ' ').substring(0, 16)
-      };
-      setLeads([mockLead, ...leads]);
-      toast.success("Simulated lead saved locally!");
+      if (!db) throw new Error("Firestore is not configured.");
+      const leadRef = await addDoc(collection(db, "leads"), leadData);
+      setLeads([{ id: leadRef.id, ...leadData }, ...leads]);
+      toast.success("Inquiry saved to Firestore!");
+    } catch (error) {
+      console.error("Unable to save lead:", error);
+      toast.error("Unable to save this inquiry.");
+      return;
     }
     
     setIsAddLeadOpen(false);
@@ -400,31 +392,25 @@ export default function AdminPanel() {
 
   const handleDeleteLead = async (id: string) => {
     try {
-      const res = await fetch(`/api/leads/${id}`, { method: "DELETE", headers: getAdminApiHeaders() });
-      if (res.ok) {
-        setLeads(leads.filter(l => l.id !== id));
-        toast.success("Lead removed!");
-      }
-    } catch {
+      if (!db) throw new Error("Firestore is not configured.");
+      await deleteDoc(doc(db, "leads", id));
       setLeads(leads.filter(l => l.id !== id));
-      toast.success("Lead removed locally!");
+      toast.success("Lead removed!");
+    } catch (error) {
+      console.error("Unable to remove lead:", error);
+      toast.error("Unable to remove this lead.");
     }
   };
 
   const handleUpdateLeadStatus = async (id: string, status: Lead["status"]) => {
     try {
-      const res = await fetch(`/api/leads/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json", ...getAdminApiHeaders() },
-        body: JSON.stringify({ status })
-      });
-      if (res.ok) {
-        setLeads(leads.map(l => l.id === id ? { ...l, status } : l));
-        toast.success("Status updated!");
-      }
-    } catch {
+      if (!db) throw new Error("Firestore is not configured.");
+      await updateDoc(doc(db, "leads", id), { status });
       setLeads(leads.map(l => l.id === id ? { ...l, status } : l));
-      toast.success("Status updated locally!");
+      toast.success("Status updated!");
+    } catch (error) {
+      console.error("Unable to update lead:", error);
+      toast.error("Unable to update this lead.");
     }
   };
 
@@ -773,7 +759,7 @@ export default function AdminPanel() {
             <div className="w-12 h-12 rounded-xl bg-sky-50 border border-sky-100 flex items-center justify-center mx-auto">
               <ShieldAlert className="w-6 h-6 text-sky-600" />
             </div>
-            <h1 className="text-2xl font-bold text-slate-900">Techwin Systems Console</h1>
+            <h1 className="text-2xl font-bold text-slate-900">Techwen Systems Console</h1>
             <p className="text-sm text-slate-500">Administrator access is restricted to the approved Google account.</p>
           </div>
 
@@ -830,7 +816,7 @@ export default function AdminPanel() {
   return (
     <div className="min-h-screen bg-[#f8fafc] text-slate-800 flex flex-col font-sans antialiased">
       <Helmet>
-        <title>Techwin Systems Console | Administrative Control</title>
+        <title>Techwen Systems Console | Administrative Control</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
@@ -844,7 +830,7 @@ export default function AdminPanel() {
             <div className="w-8 h-8 rounded-lg bg-sky-600 flex items-center justify-center text-white shadow-md shadow-sky-600/10">
               <Sliders className="w-4 h-4" />
             </div>
-            <span className="font-bold text-lg text-slate-900 tracking-tight">Techwin Systems</span>
+            <span className="font-bold text-lg text-slate-900 tracking-tight">Techwen Systems</span>
             <Badge className="bg-slate-100 text-slate-600 border border-slate-200 text-[9px] hover:bg-slate-100 px-1.5 py-0.5 rounded-md font-medium ml-1">CONSOLE</Badge>
           </div>
         </div>
@@ -1220,21 +1206,6 @@ export default function AdminPanel() {
             <TabsContent value="settings" className="space-y-6 focus:outline-none">
               <Card className="bg-white border-slate-200/80 rounded-2xl shadow-sm max-w-2xl">
                 <CardHeader>
-                  <CardTitle className="text-sm font-bold text-slate-900">Secure API Access</CardTitle>
-                  <CardDescription>Enter the server administrator token for this browser session. It is never stored persistently.</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <label className="text-xs font-semibold text-slate-700" htmlFor="admin-api-token">Administrator API token</label>
-                  <div className="flex gap-2">
-                    <Input id="admin-api-token" type="password" autoComplete="off" value={apiTokenDraft} onChange={(event) => setApiTokenDraft(event.target.value)} className="bg-slate-50 border-slate-200 text-xs h-9 rounded-lg flex-1" placeholder="Enter the ADMIN_API_TOKEN value" />
-                    <Button type="button" onClick={() => { setAdminApiToken(apiTokenDraft); setApiToken(getAdminApiToken()); toast.success(apiTokenDraft.trim() ? "API token saved for this session" : "API token cleared"); }} className="bg-sky-600 hover:bg-sky-700 text-white rounded-lg h-9">Save</Button>
-                  </div>
-                  <p className="text-[11px] leading-5 text-slate-500">Set the matching <code>ADMIN_API_TOKEN</code> environment variable on the API server. Use at least 32 random characters.</p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white border-slate-200/80 rounded-2xl shadow-sm max-w-2xl">
-                <CardHeader>
                   <CardTitle className="text-sm font-bold text-slate-900">Whitelabel Branding & Customization</CardTitle>
                   <CardDescription>Configure the global branding, company name, domain, and logos to whitelabel this template</CardDescription>
                 </CardHeader>
@@ -1242,11 +1213,11 @@ export default function AdminPanel() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-1">
                       <label className="text-xs font-semibold text-slate-700">Company Legal Name</label>
-                      <Input value={companyName} onChange={(e) => setCompanyName(e.target.value)} className="bg-slate-50 border-slate-200 text-xs h-9 rounded-lg" placeholder="e.g. Techwin Systems" />
+                      <Input value={companyName} onChange={(e) => setCompanyName(e.target.value)} className="bg-slate-50 border-slate-200 text-xs h-9 rounded-lg" placeholder="e.g. Techwen Systems" />
                     </div>
                     <div className="space-y-1">
                       <label className="text-xs font-semibold text-slate-700">Brand Name</label>
-                      <Input value={brandName} onChange={(e) => setBrandName(e.target.value)} className="bg-slate-50 border-slate-200 text-xs h-9 rounded-lg" placeholder="e.g. Techwin Systems" />
+                      <Input value={brandName} onChange={(e) => setBrandName(e.target.value)} className="bg-slate-50 border-slate-200 text-xs h-9 rounded-lg" placeholder="e.g. Techwen Systems" />
                     </div>
                     <div className="space-y-1">
                       <label className="text-xs font-semibold text-slate-700">Canonical Domain Name</label>
@@ -1254,13 +1225,13 @@ export default function AdminPanel() {
                     </div>
                     <div className="space-y-1">
                       <label className="text-xs font-semibold text-slate-700">Twitter Handle</label>
-                      <Input value={twitterHandle} onChange={(e) => setTwitterHandle(e.target.value)} className="bg-slate-50 border-slate-200 text-xs h-9 rounded-lg" placeholder="e.g. Techwin Systems" />
+                      <Input value={twitterHandle} onChange={(e) => setTwitterHandle(e.target.value)} className="bg-slate-50 border-slate-200 text-xs h-9 rounded-lg" placeholder="e.g. Techwen Systems" />
                     </div>
                   </div>
                   <div className="space-y-1 mt-4">
                     <label className="text-xs font-semibold text-slate-700">Favicon Asset URL or Upload</label>
                     <div className="flex gap-2">
-                      <Input value={faviconUrl} onChange={(e) => setFaviconUrl(e.target.value)} className="bg-slate-50 border-slate-200 text-xs h-9 rounded-lg flex-1" placeholder="e.g. /favicon.png" />
+                      <Input value={faviconUrl} onChange={(e) => setFaviconUrl(e.target.value)} className="bg-slate-50 border-slate-200 text-xs h-9 rounded-lg flex-1" placeholder="e.g. /techwen-favicon.png" />
                       <div className="relative">
                         <input type="file" id="favicon-upload" accept="image/*" className="hidden" onChange={handleFaviconUpload} />
                         <Button type="button" variant="outline" onClick={() => document.getElementById("favicon-upload")?.click()} className="border-slate-200 bg-white hover:bg-slate-50 text-xs h-9 shadow-sm">

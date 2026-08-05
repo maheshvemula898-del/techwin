@@ -10,7 +10,7 @@ export const HeroSection = () => {
 
   const heroLabel = homeTexts.heroLabel || "Global Technology Services";
   const heroTitle = homeTexts.heroTitle || "Engineering Secure Digital Enterprises";
-  const heroDescription = homeTexts.heroDescription || "Techwin Systems delivers DevOps, cybersecurity, cloud, software engineering, data and AI, and managed technology solutions for global enterprises.";
+  const heroDescription = homeTexts.heroDescription || "Techwen Systems delivers DevOps, cybersecurity, cloud, software engineering, data and AI, and managed technology solutions for global enterprises.";
 
   return (
     <section className="relative bg-[#faf8f3] pt-[82px] md:pt-[136px] pb-8 md:pb-12 font-sans antialiased text-[#101820] overflow-hidden">

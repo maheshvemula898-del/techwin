@@ -353,8 +353,8 @@
   }
 
   .brand-logo-footer {
-    width: 240px;
-    height: 70px;
+    width: 190px;
+    height: 54px;
   }
 }
 
@@ -365,6 +365,23 @@
 
 .site-navbar a:hover,
 .site-navbar button:hover {
+  color: #315f98 !important;
+}
+
+.site-navbar .services-mega-menu .services-mega-cta {
+  color: #ffffff !important;
+}
+
+.site-navbar .services-mega-menu .services-mega-cta:hover {
+  color: #f5c518 !important;
+}
+
+.site-navbar .services-mega-menu .services-mega-link {
+  color: #0f172a !important;
+}
+
+.site-navbar .mobile-navigation-panel .mobile-contact-link,
+.site-navbar .mobile-navigation-panel .mobile-view-services {
   color: #315f98 !important;
 }
 
