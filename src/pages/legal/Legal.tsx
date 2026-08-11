@@ -36,7 +36,6 @@ const Legal = () => {
               <strong>Company Name:</strong> Techwen Systems Pvt Limited<br />
               <strong>Established:</strong> 26 September 2011<br />
               <strong>Registered Office:</strong> 130, 4th Floor, Sant Nagar, East of Kailash, New Delhi - 110065<br />
-              <strong>Phone:</strong> +91 98669 78808, +91 94944 32286<br />
               <strong>Email:</strong> info@techwensys.com
             </p>
 

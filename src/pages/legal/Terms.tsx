@@ -100,7 +100,6 @@ const Terms = () => {
             <p className="text-muted-foreground mb-6">
               For questions about these Terms, please contact us at:<br />
               <strong>Email:</strong> info@techwensys.com<br />
-              <strong>Phone:</strong> +91 98669 78808, +91 94944 32286<br />
               <strong>Address:</strong> Techwen Systems Pvt Limited, 130, 4th Floor, Sant Nagar, East of Kailash, New Delhi - 110065
             </p>
           </motion.div>
