@@ -186,36 +186,6 @@ export const defaultFallbackContent: WebsiteContent = {
       color: "bg-[#1e6fd9]/10 text-[#1e6fd9]"
     },
     {
-      id: "cm-3",
-      iconName: "Phone",
-      title: "Primary phone",
-      description: "Call our business team during working hours.",
-      contact: "+91 98669 78808",
-      action: "Call now",
-      link: "tel:+919866978808",
-      color: "bg-[#1e6fd9]/10 text-[#1e6fd9]"
-    },
-    {
-      id: "cm-4",
-      iconName: "Phone",
-      title: "Alternate phone",
-      description: "An additional line for business enquiries.",
-      contact: "+91 94944 32286",
-      action: "Call now",
-      link: "tel:+919494432286",
-      color: "bg-[#1e6fd9]/10 text-[#1e6fd9]"
-    },
-    {
-      id: "cm-5",
-      iconName: "MessageCircle",
-      title: "WhatsApp",
-      description: "Message our team for a quick response.",
-      contact: "+91 94944 32286",
-      action: "Chat now",
-      link: "https://wa.me/919494432286",
-      color: "bg-[#1e6fd9]/10 text-[#1e6fd9]"
-    },
-    {
       id: "cm-6",
       iconName: "MapPin",
       title: "Visit office",
